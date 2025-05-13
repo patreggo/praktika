@@ -156,7 +156,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{user:table} представлена структура таблицы user.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{user:table}}\\ \hline
+	\caption{Таблица user \label{user:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -182,7 +182,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{company:table} представлена структура таблицы company.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{company:table}}\\ \hline
+	\caption{Таблица company \label{company:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -199,10 +199,10 @@ MySQL — это реляционная СУБД с открытым исход�
 	foreign key & vacancies & integer & false \\ \hline
 \end{xltabular}
 
-В таблице \ref{country:table} представлена структура таблицы company.
+В таблице \ref{country:table} представлена структура таблицы country.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{country:table}}\\ \hline
+	\caption{Таблица country \label{country:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -219,7 +219,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{district:table} представлена структура таблицы district.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{district:table}}\\ \hline
+	\caption{Таблица district \label{district:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -237,7 +237,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{city:table} представлена структура таблицы city.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{city:table}}\\ \hline
+	\caption{Таблица city \label{city:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -249,4 +249,22 @@ MySQL — это реляционная СУБД с открытым исход�
 	& name & string & true \\ \hline 
 	& techName & string & true \\ \hline 
 	foreign key & district & string & false \\ \hline 
+\end{xltabular}
+
+В таблице \ref{vacancyResponse:table} представлена структура таблицы vacancyResponse.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyResponse \label{vacancyResponse:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyResponse:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+    foreign key	& resume & integer & true \\ \hline 
+	foreign key	& vacancy & integer & true \\ \hline 
+	foreign key & status & integer & true \\ \hline 
+	foreign key & initiator & integer & true \\ \hline 
 \end{xltabular}
