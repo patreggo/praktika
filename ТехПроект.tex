@@ -378,8 +378,8 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{resumeCitizenshipCountry:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	foreign key	& resume & string & true \\ \hline
-	foreign key& country & date & true \\ \hline
+	primary key	& resume & string & true \\ \hline
+	primary key & country & date & true \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
@@ -402,9 +402,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{incomePayment:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline
-	& name & string & true \\ \hline
-	& techName & string & false \\ \hline
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
 	& position & integer & true \\ \hline
 \end{xltabular}
 
@@ -416,9 +416,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{jobIndustry:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline
-	& name & string & true \\ \hline
-	& techName & string & false \\ \hline
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
 	& position & integer & true \\ \hline
 \end{xltabular}
 
@@ -430,9 +430,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{levelEducation:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline
-	& name & string & true \\ \hline
-	& techName & string & false \\ \hline
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
 	& position & integer & true \\ \hline
 \end{xltabular}
 
@@ -444,7 +444,7 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{resumeCity:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & resumeId & integer & true \\ \hline
+	primary key & resumeId & integer & true \\ \hline 
 	primary key & cityId & integer & true \\ \hline
 \end{xltabular}
 
@@ -456,7 +456,7 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{resumeVacancyEmploymentType:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & resumeId & integer & true \\ \hline
+	primary key & resumeId & integer & true \\ \hline 
 	primary key & vacancyEmploymentTypeId & integer & true \\ \hline
 \end{xltabular}
 
@@ -468,8 +468,20 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{resumeWorkPermitCountry:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & resumeId & integer & true \\ \hline
+	primary key & resumeId & integer & true \\ \hline 
 	primary key & countryId & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица userResume \label{userResume:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{userResume:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & userId & integer & true \\ \hline 
+	primary key & resumeId & integer & true \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
@@ -480,10 +492,178 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{userRoles:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline
-	& name & string & true \\ \hline
-	& displayName & string & true \\ \hline
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& displayName & string & true \\ \hline 
 	& baseRoute & string & false \\ \hline
 \end{xltabular}
 
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица userVacancy \label{userVacancy:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{userVacancy:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & userId & integer & true \\ \hline 
+	primary key & vacancyId & integer & true \\ \hline
+\end{xltabular}
 
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyCity \label{vacancyCity:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyCity:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & vacancyId & integer & true \\ \hline 
+	primary key & cityId & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyCompanyIndustry \label{vacancyCompanyIndustry:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyCompanyIndustry:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyEducation \label{vacancyEducation:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyEducation:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyEmploymentType \label{vacancyEmploymentType:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyEmploymentType:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyIncomePayment \label{vacancyIncomePayment:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyIncomePayment:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancySpecializations \label{vacancySpecializations:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancySpecializations:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyVacancyCompanyIndustry \label{vacancyVacancyCompanyIndustry:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyVacancyCompanyIndustry:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & vacancyId & integer & true \\ \hline 
+	primary key & vacancyCompanyIndustryId & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyVacancyEmploymentType \label{vacancyVacancyEmploymentType:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyVacancyEmploymentType:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & vacancyId & integer & true \\ \hline 
+	primary key & vacancyEmploymentTypeId & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyVacancySpecializations \label{vacancyVacancySpecializations:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyVacancySpecializations:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & vacancyId & integer & true \\ \hline 
+	primary key & vacancySpecializationsId & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyVacancyWorkSchedule \label{vacancyVacancyWorkSchedule:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyVacancyWorkSchedule:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & vacancyId & integer & true \\ \hline 
+	primary key & vacancyWorkScheduleId & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyWorkExperience \label{vacancyWorkExperience:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyWorkExperience:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyWorkSchedule \label{vacancyWorkSchedule:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyWorkSchedule:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
