@@ -67,7 +67,7 @@ MySQL — это реляционная СУБД с открытым исход�
 
 Диаграмма размещения описывает физическую архитектуру web-платформы для поиска работы. Она иллюстрирует структуру системы, определяя зависимости между программными компонентами, включая исходный и исполняемый код.
 
-На рисунке \ref{dc:image} изображена диаграмма размещения.
+На рисунке \ref{dc:image} изображена архитектура программной системы.
 
 \begin{figure}[ht]
 \center{\includegraphics[width=1\linewidth]{dc}}
@@ -90,6 +90,28 @@ MySQL — это реляционная СУБД с открытым исход�
 	\end{itemize}
 	
 	\item Для хранения данных используется СУБД MySQL, интегрированная с Symfony через ORM Doctrine, что упрощает управление данными и обеспечивает высокую производительность.
+\end{enumerate}
+
+\subsection{Диаграмма компонентов}
+
+Диаграмма компонентов показывает структуру системы и взаимодействие между её основными составляющими. Она демонстрирует, как данные передаются от одного компонента к другому и какие компоненты взаимодействуют с базой данных. На рисунке
+\ref{dcc:image} представлена диаграмма компонентов для проектируемой системы.
+
+
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{dcc}}
+	\caption{Диаграмма компонентов}
+	\label{dcc:image}
+\end{figure}
+
+Она представляет собой структуру системы, состоящую из следующих компонентов:
+\begin{enumerate}
+	\item Сервер - центральная точка обработки запросов.
+	\item Браузер - клиентская часть, где пользователь взаимодействует с интерфейсом.
+	\item ApiControllers.php - PHP-контроллеры, реализующие бизнес-логику и работу с базой данных.
+	\item MySQL - база данных, хранящая все данные системы.
+	\item router.js - модуль маршрутизации, управляющий навигацией между страницами.
+	\item components.vue - Vue-компоненты, отображающие пользовательский интерфейс.
 \end{enumerate}
 
 \subsection{Структура базы данных}
@@ -278,9 +300,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{awardAndAchievments:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline 
-		& award & string & true \\ \hline 
-	foreign key	& resume & integer & true \\ \hline 
+	primary key & id & integer & true \\ \hline
+		& award & string & true \\ \hline
+	foreign key	& resume & integer & true \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
@@ -292,13 +314,13 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{education:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline 
-	foreign key	& levelEducation & string & true \\ \hline 
-		& university & string & true \\ \hline 
-		& speciality & string & true \\ \hline 
-		& faculty & string & true \\ \hline 
-		& graduationYear & int & true \\ \hline 
-		foreign key	& resume & id & true \\ \hline 
+	primary key & id & integer & true \\ \hline
+	foreign key	& levelEducation & string & true \\ \hline
+		& university & string & true \\ \hline
+		& speciality & string & true \\ \hline
+		& faculty & string & true \\ \hline
+		& graduationYear & int & true \\ \hline
+		foreign key	& resume & id & true \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
@@ -310,9 +332,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{gender:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline 
-	& name & string & true \\ \hline 
-	& techName & string & true \\ \hline 
+	primary key & id & integer & true \\ \hline
+	& name & string & true \\ \hline
+	& techName & string & true \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
@@ -324,9 +346,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{vacancyResponseStatus:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline 
-	& name & string & true \\ \hline 
-	& techName & string & true \\ \hline 
+	primary key & id & integer & true \\ \hline
+	& name & string & true \\ \hline
+	& techName & string & true \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
@@ -338,13 +360,13 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{workPlace:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline 
-	foreign key	& workExperience & string & true \\ \hline 
-	& startDate & date & true \\ \hline 
-	& endDate & date & true \\ \hline 
-	& organizationName & string & true \\ \hline 
-	& professionName & string & true \\ \hline 
-	foreign key	& resume & integer & true \\ \hline 
+	primary key & id & integer & true \\ \hline
+	foreign key	& workExperience & string & true \\ \hline
+	& startDate & date & true \\ \hline
+	& endDate & date & true \\ \hline
+	& organizationName & string & true \\ \hline
+	& professionName & string & true \\ \hline
+	foreign key	& resume & integer & true \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
@@ -356,8 +378,8 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{resumeCitizenshipCountry:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	foreign key	& resume & string & true \\ \hline 
-	foreign key& country & date & true \\ \hline 
+	foreign key	& resume & string & true \\ \hline
+	foreign key& country & date & true \\ \hline
 \end{xltabular}
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
@@ -368,7 +390,7 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{favoritesUsers:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & userSource & integer & true \\ \hline 
+	primary key & userSource & integer & true \\ \hline
 	primary key & userTarget & integer & true \\ \hline
 \end{xltabular}
 
@@ -380,9 +402,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{incomePayment:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline 
-	& name & string & true \\ \hline 
-	& techName & string & false \\ \hline 
+	primary key & id & integer & true \\ \hline
+	& name & string & true \\ \hline
+	& techName & string & false \\ \hline
 	& position & integer & true \\ \hline
 \end{xltabular}
 
@@ -394,9 +416,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{jobIndustry:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline 
-	& name & string & true \\ \hline 
-	& techName & string & false \\ \hline 
+	primary key & id & integer & true \\ \hline
+	& name & string & true \\ \hline
+	& techName & string & false \\ \hline
 	& position & integer & true \\ \hline
 \end{xltabular}
 
@@ -408,9 +430,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{levelEducation:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline 
-	& name & string & true \\ \hline 
-	& techName & string & false \\ \hline 
+	primary key & id & integer & true \\ \hline
+	& name & string & true \\ \hline
+	& techName & string & false \\ \hline
 	& position & integer & true \\ \hline
 \end{xltabular}
 
@@ -422,7 +444,7 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{resumeCity:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & resumeId & integer & true \\ \hline 
+	primary key & resumeId & integer & true \\ \hline
 	primary key & cityId & integer & true \\ \hline
 \end{xltabular}
 
@@ -434,7 +456,7 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{resumeVacancyEmploymentType:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & resumeId & integer & true \\ \hline 
+	primary key & resumeId & integer & true \\ \hline
 	primary key & vacancyEmploymentTypeId & integer & true \\ \hline
 \end{xltabular}
 
@@ -446,7 +468,7 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{resumeWorkPermitCountry:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & resumeId & integer & true \\ \hline 
+	primary key & resumeId & integer & true \\ \hline
 	primary key & countryId & integer & true \\ \hline
 \end{xltabular}
 
@@ -458,9 +480,9 @@ MySQL — это реляционная СУБД с открытым исход�
 	\continuecaption{Продолжение таблицы \ref{userRoles:table}}
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\finishhead
-	primary key & id & integer & true \\ \hline 
-	& name & string & true \\ \hline 
-	& displayName & string & true \\ \hline 
+	primary key & id & integer & true \\ \hline
+	& name & string & true \\ \hline
+	& displayName & string & true \\ \hline
 	& baseRoute & string & false \\ \hline
 \end{xltabular}
 
