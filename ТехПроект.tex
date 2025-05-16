@@ -65,13 +65,13 @@ MySQL — это реляционная СУБД с открытым исход�
 
 \subsection{Архитектура программной системы}
 
-Диаграмма компонентов описывает физическую архитектуру web-платформы для поиска работы. Она иллюстрирует структуру системы, определяя зависимости между программными компонентами, включая исходный и исполняемый код.
+Диаграмма размещения описывает физическую архитектуру web-платформы для поиска работы. Она иллюстрирует структуру системы, определяя зависимости между программными компонентами, включая исходный и исполняемый код.
 
-На рисунке \ref{dc:image} изображена архитектура программной системы.
+На рисунке \ref{dc:image} изображена диаграмма размещения.
 
 \begin{figure}[ht]
 \center{\includegraphics[width=1\linewidth]{dc}}
-\caption{Архитектура программной системы}
+\caption{Диаграмма размещения}
 \label{dc:image}
 \end{figure}
 
@@ -83,24 +83,24 @@ MySQL — это реляционная СУБД с открытым исход�
 	\item Основной сервер реализован с использованием фреймворка Symfony, который отвечает за обработку запросов от клиентской части через REST API. Symfony обеспечивает бизнес-логику платформы, включая:
 	
 	\begin{itemize}
-		\item управление пользователями.
-		\item обработку данных о вакансиях и резюме.
-		\item поиск и фильтрацию.
+		\item управление пользователями;
+		\item обработку данных о вакансиях и резюме;
+		\item поиск и фильтрацию;
 		\item обработку откликов на вакансии.
 	\end{itemize}
 	
-	Для хранения данных используется СУБД MySQL, интегрированная с Symfony через ORM Doctrine, что упрощает управление данными и обеспечивает высокую производительность.
+	\item Для хранения данных используется СУБД MySQL, интегрированная с Symfony через ORM Doctrine, что упрощает управление данными и обеспечивает высокую производительность.
 \end{enumerate}
 
 \subsection{Структура базы данных}
 
 Сущности и отношение между таблицами базы данных отражены на
-рисунке \ref{bd:image}
+рисунке \ref{db:image}
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{bd}}
+	\center{\includegraphics[width=1\linewidth]{db}}
 	\caption{ER-диаграмма}
-	\label{bd:image}
+	\label{db:image}
 \end{figure}
 
 
@@ -268,3 +268,200 @@ MySQL — это реляционная СУБД с открытым исход�
 	foreign key & status & integer & true \\ \hline 
 	foreign key & initiator & integer & true \\ \hline 
 \end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица awardsAndAchievement \label{awardAndAchievments:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{awardAndAchievments:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+		& award & string & true \\ \hline 
+	foreign key	& resume & integer & true \\ \hline 
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица education \label{education:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{education:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	foreign key	& levelEducation & string & true \\ \hline 
+		& university & string & true \\ \hline 
+		& speciality & string & true \\ \hline 
+		& faculty & string & true \\ \hline 
+		& graduationYear & int & true \\ \hline 
+		foreign key	& resume & id & true \\ \hline 
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица gender \label{gender:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{gender:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & true \\ \hline 
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица vacancyResponseStatus \label{vacancyResponseStatus:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyResponseStatus:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & true \\ \hline 
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица workPlace \label{workPlace:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{workPlace:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	foreign key	& workExperience & string & true \\ \hline 
+	& startDate & date & true \\ \hline 
+	& endDate & date & true \\ \hline 
+	& organizationName & string & true \\ \hline 
+	& professionName & string & true \\ \hline 
+	foreign key	& resume & integer & true \\ \hline 
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица resumeCitizenshipCountry \label{resumeCitizenshipCountry:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{resumeCitizenshipCountry:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	foreign key	& resume & string & true \\ \hline 
+	foreign key& country & date & true \\ \hline 
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица favoritesUsers \label{favoritesUsers:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{favoritesUsers:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & userSource & integer & true \\ \hline 
+	primary key & userTarget & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица incomePayment \label{incomePayment:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{incomePayment:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица jobIndustry \label{jobIndustry:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{jobIndustry:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица levelEducation \label{levelEducation:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{levelEducation:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица resumeCity \label{resumeCity:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{resumeCity:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & resumeId & integer & true \\ \hline 
+	primary key & cityId & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица resumeVacancyEmploymentType \label{resumeVacancyEmploymentType:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{resumeVacancyEmploymentType:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & resumeId & integer & true \\ \hline 
+	primary key & vacancyEmploymentTypeId & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица resumeWorkPermitCountry \label{resumeWorkPermitCountry:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{resumeWorkPermitCountry:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & resumeId & integer & true \\ \hline 
+	primary key & countryId & integer & true \\ \hline
+\end{xltabular}
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Таблица userRoles \label{userRoles:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{userRoles:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& displayName & string & true \\ \hline 
+	& baseRoute & string & false \\ \hline
+\end{xltabular}
+
+
