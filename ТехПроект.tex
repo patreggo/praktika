@@ -106,22 +106,20 @@ MySQL — это реляционная СУБД с открытым исход�
 
 Она представляет собой структуру системы, состоящую из следующих компонентов:
 \begin{enumerate}
-	\item Сервер - центральная точка обработки запросов.
-	\item Браузер - клиентская часть, где пользователь взаимодействует с интерфейсом.
-	\item ApiControllers.php - PHP-контроллеры, реализующие бизнес-логику и работу с базой данных.
-	\item MySQL - база данных, хранящая все данные системы.
-	\item router.js - модуль маршрутизации, управляющий навигацией между страницами.
-	\item components.vue - Vue-компоненты, отображающие пользовательский интерфейс.
+	\item Клиент (Vue.js/JavaScript) - фронтенд-слой, включающий Vue-компоненты для отображения интерфейса, Vue Router для маршрутизации и Vuex Store для управления состоянием приложения.
+	\item Веб-сервер (NGINX) - промежуточный слой, обслуживающий статические файлы и проксирующий API-запросы к backend-серверу.
+	\item Сервер (Symfony/PHP) - бэкенд-слой с API-контроллерами, формами и валидацией, бизнес-сервисами и Doctrine ORM для работы с базой данных.
+	\item База данных (MySQL) - слой хранения данных.
 \end{enumerate}
+Взаимодействие между компонентами осуществляется через HTTP/HTTPS протокол между клиентом и веб-сервером, FastCGI/PHP-FPM между веб-сервером и Symfony, и SQL/PDO соединения между приложением и базой данных MySQL.
 
 \subsection{Структура базы данных}
 
-Сущности и отношение между таблицами базы данных отражены на
-рисунке \ref{db:image}
+Схема структуры базы данных системы, отражающая таблицы, их атрибуты, ключи и связи между ними отражена нарисунке \ref{db:image}
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{db}}
-	\caption{ER-диаграмма}
+	\center{\includegraphics[width=1\linewidth]{db1}}
+	\caption{Структура базы данных}
 	\label{db:image}
 \end{figure}
 
@@ -129,7 +127,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{ssevsws:table} представлена структура таблицы resume.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица resume \label{ssevsws:table}}\\ \hline
+	\caption{Структура таблицы resume \label{ssevsws:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -152,7 +150,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{vacancy:table} представлена структура таблицы vacancy.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{vacancy:table}}\\ \hline
+	\caption{Структура таблицы vacancy \label{vacancy:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -178,7 +176,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{user:table} представлена структура таблицы user.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица user \label{user:table}}\\ \hline
+	\caption{Структура таблицы user \label{user:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -204,7 +202,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{company:table} представлена структура таблицы company.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица company \label{company:table}}\\ \hline
+	\caption{Структура таблицы company \label{company:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -224,7 +222,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{country:table} представлена структура таблицы country.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица country \label{country:table}}\\ \hline
+	\caption{Структура таблицы country \label{country:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -241,7 +239,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{district:table} представлена структура таблицы district.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица district \label{district:table}}\\ \hline
+	\caption{Структура таблицы district \label{district:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -259,7 +257,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{city:table} представлена структура таблицы city.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица city \label{city:table}}\\ \hline
+	\caption{Структура таблицы city \label{city:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -276,7 +274,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{vacancyResponse:table} представлена структура таблицы vacancyResponse.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyResponse \label{vacancyResponse:table}}\\ \hline
+	\caption{Структура таблицы vacancyResponse \label{vacancyResponse:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -294,7 +292,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{awardAndAchievments:table} представлена структура таблицы awardAndAchievments.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица awardsAndAchievement \label{awardAndAchievments:table}}\\ \hline
+	\caption{Структура таблицы awardsAndAchievement \label{awardAndAchievments:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -310,7 +308,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{education:table} представлена структура таблицы education.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица education \label{education:table}}\\ \hline
+	\caption{Структура таблицы education \label{education:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -330,7 +328,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{gender:table} представлена структура таблицы gender.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица gender \label{gender:table}}\\ \hline
+	\caption{Структура таблицы gender \label{gender:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -346,7 +344,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{vacancyResponseStatus:table} представлена структура таблицы vacancyResponseStatus.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyResponseStatus \label{vacancyResponseStatus:table}}\\ \hline
+	\caption{Структура таблицы vacancyResponseStatus \label{vacancyResponseStatus:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -362,7 +360,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{workPlace:table} представлена структура таблицы workPlace.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица workPlace \label{workPlace:table}}\\ \hline
+	\caption{Структура таблицы workPlace \label{workPlace:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -382,7 +380,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{resumeCitizenshipCountry:table} представлена структура таблицы resumeCitizenshipCountry.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица resumeCitizenshipCountry \label{resumeCitizenshipCountry:table}}\\ \hline
+	\caption{Структура таблицы resumeCitizenshipCountry \label{resumeCitizenshipCountry:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -397,7 +395,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{incomePayment:table} представлена структура таблицы incomePayment.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица incomePayment \label{incomePayment:table}}\\ \hline
+	\caption{Структура таблицы incomePayment \label{incomePayment:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -413,7 +411,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{jobIndustry:table} представлена структура таблицы jobIndustry.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица jobIndustry \label{jobIndustry:table}}\\ \hline
+	\caption{Структура таблицы jobIndustry \label{jobIndustry:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -429,7 +427,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{levelEducation:table} представлена структура таблицы levelEducation.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица levelEducation \label{levelEducation:table}}\\ \hline
+	\caption{Структура таблицы levelEducation \label{levelEducation:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -442,52 +440,11 @@ MySQL — это реляционная СУБД с открытым исход�
 	& position & integer & true \\ \hline
 \end{xltabular}
 
-В таблице \ref{resumeCity:table} представлена структура таблицы resumeCity.
-
-\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица resumeCity \label{resumeCity:table}}\\ \hline
-	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{resumeCity:table}}
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\finishhead
-	primary key & resumeId & integer & true \\ \hline 
-	primary key & cityId & integer & true \\ \hline
-\end{xltabular}
-
-В таблице \ref{resumeVacancyEmploymentType:table} представлена структура таблицы resumeVacancyEmploymentType.
-
-\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица resumeVacancyEmploymentType \label{resumeVacancyEmploymentType:table}}\\ \hline
-	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{resumeVacancyEmploymentType:table}}
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\finishhead
-	primary key & resumeId & integer & true \\ \hline 
-	primary key & vacancyEmploymentTypeId & integer & true \\ \hline
-\end{xltabular}
-
-В таблице \ref{userResume:table} представлена структура таблицы userResume.
-
-\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица userResume \label{userResume:table}}\\ \hline
-	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{userResume:table}}
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\finishhead
-	primary key & userId & integer & true \\ \hline 
-	primary key & resumeId & integer & true \\ \hline
-\end{xltabular}
 
 В таблице \ref{userRoles:table} представлена структура таблицы userRoles.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица userRoles \label{userRoles:table}}\\ \hline
+	\caption{Структура таблицы userRoles \label{userRoles:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -500,38 +457,10 @@ MySQL — это реляционная СУБД с открытым исход�
 	& baseRoute & string & false \\ \hline
 \end{xltabular}
 
-В таблице \ref{userVacancy:table} представлена структура таблицы userVacancy.
-
-\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица userVacancy \label{userVacancy:table}}\\ \hline
-	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{userVacancy:table}}
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\finishhead
-	primary key & userId & integer & true \\ \hline 
-	primary key & vacancyId & integer & true \\ \hline
-\end{xltabular}
-
-В таблице \ref{vacancyCity:table} представлена структура таблицы vacancyCity.
-
-\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyCity \label{vacancyCity:table}}\\ \hline
-	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{vacancyCity:table}}
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\finishhead
-	primary key & vacancyId & integer & true \\ \hline 
-	primary key & cityId & integer & true \\ \hline
-\end{xltabular}
-
 В таблице \ref{vacancyCompanyIndustry:table} представлена структура таблицы vacancyCompanyIndustry.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyCompanyIndustry \label{vacancyCompanyIndustry:table}}\\ \hline
+	\caption{Структура таблицы vacancyCompanyIndustry \label{vacancyCompanyIndustry:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -547,7 +476,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{vacancyEducation:table} представлена структура таблицы vacancyEducation.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyEducation \label{vacancyEducation:table}}\\ \hline
+	\caption{Структура таблицы vacancyEducation \label{vacancyEducation:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -563,7 +492,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{vacancyEmploymentType:table} представлена структура таблицы vacancyEmploymentType.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyEmploymentType \label{vacancyEmploymentType:table}}\\ \hline
+	\caption{Структура таблицы vacancyEmploymentType \label{vacancyEmploymentType:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -579,7 +508,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{vacancyIncomePayment:table} представлена структура таблицы vacancyIncomePayment.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyIncomePayment \label{vacancyIncomePayment:table}}\\ \hline
+	\caption{Структура таблицы vacancyIncomePayment \label{vacancyIncomePayment:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -595,7 +524,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{vacancySpecializations:table} представлена структура таблицы vacancySpecializations.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancySpecializations \label{vacancySpecializations:table}}\\ \hline
+	\caption{Структура таблицы vacancySpecializations \label{vacancySpecializations:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -608,66 +537,10 @@ MySQL — это реляционная СУБД с открытым исход�
 	& position & integer & true \\ \hline
 \end{xltabular}
 
-В таблице \ref{vacancyVacancyCompanyIndustry:table} представлена структура таблицы vacancyVacancyCompanyIndustry.
-
-\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyVacancyCompanyIndustry \label{vacancyVacancyCompanyIndustry:table}}\\ \hline
-	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{vacancyVacancyCompanyIndustry:table}}
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\finishhead
-	primary key & vacancyId & integer & true \\ \hline 
-	primary key & vacancyCompanyIndustryId & integer & true \\ \hline
-\end{xltabular}
-
-В таблице \ref{vacancyVacancyEmploymentType:table} представлена структура таблицы vacancyVacancyEmploymentType.
-
-\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyVacancyEmploymentType \label{vacancyVacancyEmploymentType:table}}\\ \hline
-	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{vacancyVacancyEmploymentType:table}}
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\finishhead
-	primary key & vacancyId & integer & true \\ \hline 
-	primary key & vacancyEmploymentTypeId & integer & true \\ \hline
-\end{xltabular}
-
-В таблице \ref{vacancyVacancySpecializations:table} представлена структура таблицы vacancyVacancySpecializations.
-
-\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyVacancySpecializations \label{vacancyVacancySpecializations:table}}\\ \hline
-	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{vacancyVacancySpecializations:table}}
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\finishhead
-	primary key & vacancyId & integer & true \\ \hline 
-	primary key & vacancySpecializationsId & integer & true \\ \hline
-\end{xltabular}
-
-В таблице \ref{vacancyVacancyWorkSchedule:table} представлена структура таблицы vacancyVacancyWorkSchedule.
-
-\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyVacancyWorkSchedule \label{vacancyVacancyWorkSchedule:table}}\\ \hline
-	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\endfirsthead
-	\continuecaption{Продолжение таблицы \ref{vacancyVacancyWorkSchedule:table}}
-	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
-	\finishhead
-	primary key & vacancyId & integer & true \\ \hline 
-	primary key & vacancyWorkScheduleId & integer & true \\ \hline
-\end{xltabular}
-
 В таблице \ref{vacancyWorkExperience:table} представлена структура таблицы vacancyWorkExperience.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyWorkExperience \label{vacancyWorkExperience:table}}\\ \hline
+	\caption{Структура таблицы vacancyWorkExperience \label{vacancyWorkExperience:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
@@ -683,7 +556,7 @@ MySQL — это реляционная СУБД с открытым исход�
 В таблице \ref{vacancyWorkSchedule:table} представлена структура таблицы vacancyWorkSchedule.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancyWorkSchedule \label{vacancyWorkSchedule:table}}\\ \hline
+	\caption{Структура таблицы vacancyWorkSchedule \label{vacancyWorkSchedule:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
 	\endfirsthead
