@@ -39,6 +39,8 @@ UserApiController (Компонент управления пользовате�
 	\item применяет UserPasswordHasherInterface для безопасного хэширования паролей.
 \end{itemize}
 
+В таблице \ref{User:table} представлены данные класса UserApiController.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса UserApiController \label{User:table}} \\
 	\hline 
@@ -60,6 +62,8 @@ UserApiController (Компонент управления пользовате�
 	ApiRegistrationFormType &  Форма для валидации данных при регистрации пользователя. \\ \hline
 	UserPasswordHasherInterface &  Интерфейс для хэширования паролей. \\ \hline
 \end{xltabular}
+
+В таблице \ref{UserMet:table} представлены методы класса UserApiController.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса  UserApiController \label{UserMet:table}} \\
@@ -122,6 +126,8 @@ VacancyApiController (Компонент управления вакансиям
 	\item применяет FOSRestBundle для обработки REST-запросов и формирования JSON-ответов.
 \end{itemize}
 
+В таблице \ref{Vacancy:table} представлены данные класса VacancyApiController.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса VacancyApiController \label{Vacancy:table}} \\
 	\hline 
@@ -143,6 +149,8 @@ VacancyApiController (Компонент управления вакансиям
 	FilterService &  Сервис для обработки и применения фильтров к списку вакансий. \\ \hline
 	EntityManagerInterface &  Интерфейс для работы с базой данных через Doctrine. \\ \hline
 \end{xltabular}
+
+В таблице \ref{Vacancy:table} представлены методы класса VacancyApiController.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса  VacancyApiController \label{VacancyM:table}} \\
@@ -200,6 +208,8 @@ VacancyParametersApiController (компонент управления пара
 	\item применяет Symfony/Component/HttpKernel/Exception/NotFoundHttpException для обработки ошибок при неверном типе параметра.
 \end{itemize}
 
+В таблице \ref{VacancyPar:table} представлены данные класса VacancyParametersApiController.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса VacancyParametersApiController \label{VacancyPar:table}} \\
 	\hline 
@@ -219,6 +229,8 @@ VacancyParametersApiController (компонент управления пара
 	ManagerRegistry &  Интерфейс для получения репозитория сущностей Doctrine. \\ \hline
 	NotFoundHttpException &  Исключение, выбрасываемое при отсутствии запрошенного типа параметра. \\ \hline
 \end{xltabular}
+
+В таблице \ref{VacancypM:table} представлены методы класса VacancyParametersApiController.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса  VacancyParametersApiController \label{VacancypM:table}} \\
@@ -279,6 +291,8 @@ ResumeApiController (компонент управления резюме чер
 	\item использует FOSRestBundle для обработки REST-запросов и формирования JSON-ответов;
 \end{itemize}
 
+В таблице \ref{Resume:table} представлены данные класса ResumeApiController.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса ResumeApiController \label{Resume:table}} \\
 	\hline 
@@ -300,6 +314,8 @@ ResumeApiController (компонент управления резюме чер
 	FilterService &  Сервис для обработки и применения фильтров к списку резюме. \\ \hline
 	EntityManagerInterface &  Интерфейс для работы с базой данных через Doctrine. \\ \hline
 \end{xltabular}
+
+В таблице \ref{ResumeM:table} представлены методы класса ResumeApiController.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса  VacancyParametersApiController \label{ResumeM:table}} \\
@@ -358,6 +374,8 @@ ResumeParametersApiController (компонент управления пара�
 	\item применяет Symfony/Component/HttpKernel/Exception/NotFoundHttpException для обработки ошибок при неверном типе параметра.
 \end{itemize}
 
+В таблице \ref{ResumePar:table} представлены данные класса ResumeParametersApiController.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса ResumeParametersApiController \label{ResumePar:table}} \\
 	\hline 
@@ -377,6 +395,8 @@ ResumeParametersApiController (компонент управления пара�
 	ManagerRegistry & Интерфейс для получения репозитория сущностей Doctrine. \\ \hline
 	NotFoundHttpException & Исключение, выбрасываемое при отсутствии запрошенного типа параметра. \\ \hline
 \end{xltabular}
+
+В таблице \ref{ResumePM:table} представлены методы класса ResumeParametersApiController.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса ResumeParametersApiController \label{ResumePM:table}} \\
@@ -441,6 +461,8 @@ CompanyApiController (компонент управления компаниям
 	\item применяет Symfony/Component/HttpKernel/Exception/AccessDeniedHttpException для обработки ошибок доступа.
 \end{itemize}
 
+В таблице \ref{CompanyPar:table} представлены данные класса CompanyApiController.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса CompanyApiController \label{CompanyPar:table}} \\
 	\hline 
@@ -463,6 +485,8 @@ CompanyApiController (компонент управления компаниям
 	EntityManagerInterface & Интерфейс для работы с базой данных через Doctrine. \\ \hline
 	AccessDeniedHttpException & Исключение, выбрасываемое при отсутствии прав доступа. \\ \hline
 \end{xltabular}
+
+В таблице \ref{CompanyPM:table} представлены методы класса CompanyApiController.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса CompanyApiController \label{CompanyPM:table}} \\
@@ -532,6 +556,8 @@ VacancyResponseApiController (компонент управления откли
 	\item применяет Symfony/Component/HttpKernel/Exception/HttpException для обработки ошибок при отсутствии активных резюме.
 \end{itemize}
 
+В таблице \ref{VacancyResponsePar:table} представлены данные класса VacancyResponseApiController.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса VacancyResponseApiController \label{VacancyResponsePar:table}} \\
 	\hline 
@@ -555,6 +581,8 @@ VacancyResponseApiController (компонент управления откли
 	EntityManagerInterface & Интерфейс для работы с базой данных через Doctrine. \\ \hline
 	HttpException & Исключение, выбрасываемое при отсутствии активных резюме. \\ \hline
 \end{xltabular}
+
+В таблице \ref{VacancyResponsePM:table} представлены методы класса VacancyResponseApiController.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса VacancyResponseApiController \label{VacancyResponsePM:table}} \\
@@ -606,6 +634,8 @@ CityApiController (компонент управления городами че
 	\item использует FOSRestBundle для обработки REST-запросов и формирования JSON-ответов.
 \end{itemize}
 
+В таблице \ref{CityPar:table} представлены данные класса CityApiController.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса CityApiController \label{CityPar:table}} \\
 	\hline 
@@ -624,6 +654,8 @@ CityApiController (компонент управления городами че
 	City & Сущность, представляющая город. \\ \hline
 	CityRepository & Репозиторий для работы с сущностью City. \\ \hline
 \end{xltabular}
+
+В таблице \ref{CityPM:table} представлены методы класса CityApiController.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса CityApiController \label{CityPM:table}} \\
@@ -684,6 +716,8 @@ DoctrineFiltersEnabledSubscriber (сервис для управления фи�
 	\item взаимодействует с FOSRestBundle для обработки REST-запросов в контексте маршрутов.
 \end{itemize}
 
+В таблице \ref{DoctrineFiltersPar:table} представлены данные класса DoctrineFiltersEnabledSubscriber.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса DoctrineFiltersEnabledSubscriber \label{DoctrineFiltersPar:table}} \\
 	\hline 
@@ -703,6 +737,8 @@ DoctrineFiltersEnabledSubscriber (сервис для управления фи�
 	RequestEvent & Событие HTTP-запроса для обработки маршрутов и URI. \\ \hline
 	ConsoleCommandEvent & Событие консольной команды для обработки команды app:search-import. \\ \hline
 \end{xltabular}
+
+В таблице \ref{DoctrineFiltersPM:table} представлены методы класса DoctrineFiltersEnabledSubscriber.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса DoctrineFiltersEnabledSubscriber \label{DoctrineFiltersPM:table}} \\
@@ -766,6 +802,8 @@ FilterService (сервис для управления фильтрацией �
 	\item использует App/Enum/FilterType для определения типов фильтров.
 \end{itemize}
 
+В таблице \ref{FilterServicePar:table} представлены данные класса FilterService.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса FilterService \label{FilterServicePar:table}} \\
 	\hline 
@@ -787,6 +825,8 @@ FilterService (сервис для управления фильтрацией �
 	Filterable & Атрибут, определяющий фильтруемые поля сущности. \\ \hline
 	FilterType & Перечисление, определяющее типы фильтров. \\ \hline
 \end{xltabular}
+
+В таблице \ref{FilterServicePM:table} представлены методы класса FilterService.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса FilterService \label{FilterServicePM:table}} \\
@@ -845,6 +885,8 @@ StringHelperService (Сервис для обработки строк)
 	\item не имеет прямых зависимостей от внешних библиотек или фреймворков.
 \end{itemize}
 
+В таблице \ref{StringHelperServicePar:table} представлены данные класса StringHelperService.
+
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Данные класса StringHelperService \label{StringHelperServicePar:table}} \\
 	\hline 
@@ -862,6 +904,8 @@ StringHelperService (Сервис для обработки строк)
 	
 	KEYSPACE & Строка, содержащая набор символов для генерации случайных строк. \\ \hline
 \end{xltabular}
+
+В таблице \ref{StringHelperServicePM:table} представлены методы класса StringHelperService.
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса StringHelperService \label{StringHelperServicePM:table}} \\
