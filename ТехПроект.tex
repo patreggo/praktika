@@ -3,9 +3,20 @@
 
 Необходимо спроектировать и разработать web-платформу для поиска работы, которая должна способствовать эффективному взаимодействию между соискателями и работодателями на рынке труда.
 
+Основные функциональные возможности платформы включают в себя:
+\begin{enumerate}
+	\item Создание и редактирование персонального резюме с указанием опыта работы, образования, навыков и контактной информации.
+	\item Поиск вакансий по различным критериям.
+	\item Подача откликов на интересующие вакансии.
+	\item Отслеживание статуса поданных заявок.
+	\item Размещение и управление вакансиями с детальным описанием требований и условий работы.
+	\item Просмотр резюме соискателей и поиск подходящих кандидатов
+	\item Обработка входящих откликов на вакансии
+\end{enumerate}
+
 Платформа представляет собой набор взаимосвязанных электронных страниц, сгруппированных по разделам, содержащих текстовую, графическую и мультимедийную информацию (например, описания вакансий, резюме, изображения). Платформа размещается в Интернете по уникальному доменному имени, например, www.jobplatform.ru. Каждая страница платформы — это документ, созданный с использованием современных технологий веб-разработки (PHP, CSS, JavaScript и других).
 
-\subsection{Обоснование выбора технологии проектирования}
+\subsection{Обоснование выбора средств разработки}
 
 На сегодняшний день информационный рынок, поставляющий программные решения в выбранной сфере, предлагает множество продуктов, позволяющих достигнуть поставленной цели – разработки web-платформы.
 
@@ -13,11 +24,9 @@
 
 В процессе разработки web-сайта используются программные средства и языки программирования. Каждое программное средство и каждый язык программирования применяется для круга задач, при решении которых они необходимы.
 
-\subsubsection{Фреймворк PHP (Symfony)}
+\subsubsection{Фреймворк Symfony}        
 
 Symfony — это высокопроизводительный фреймворк, основанный на языке программирования PHP, предназначенный для создания серверной части (backend) web-приложений. PHP используется для написания сценариев, которые исполняются на сервере и формируют динамические страницы платформы, такие как списки вакансий, личные кабинеты и результаты поиска. Symfony предоставляет мощные инструменты для работы с базами данных, обработки запросов через REST API и обеспечения безопасности (например, JWT-аутентификация).
-
-\paragraph{Достоинства фреймворка Symfony}
 
 Основные преимущества Symfony включают:
 
@@ -28,12 +37,10 @@ Symfony — это высокопроизводительный фреймвор
 	\item Высокая производительность и поддержка современных стандартов PHP.
 \end{enumerate}
 
-
-\subsubsection{Язык программирования JavaScript (Vue.js)}
+                                                             
+\subsubsection{Язык  программирования JavaScript и фреймворк Vue.js}
 
 JavaScript — объектно-ориентированный язык программирования, используемый для создания интерактивных интерфейсов на стороне клиента. В рамках проекта применяется фреймворк Vue.js, который расширяет возможности JavaScript для построения динамического и divisions (e.g., Vue.js) фронтенда платформы. Vue.js позволяет создавать отзывчивый и интерактивный интерфейс, включая формы для резюме, фильтры поиска и карточки вакансий, без необходимости перезагрузки страницы.
-
-\paragraph{Достоинства языка JavaScript}
 
 Основные преимущества Vue.js:
 
@@ -44,15 +51,36 @@ JavaScript — объектно-ориентированный язык прог
 	\item Кросс-браузерная совместимость, минимизирующая проблемы с отображением в разных браузерах.
 \end{enumerate}
 
+\subsubsection{Система управления базами данных MySQL}
+
+MySQL — это реляционная СУБД с открытым исходным кодом, которая сочетает высокую производительность, простоту и масштабируемость. Она идеально подходит для веб-приложений, таких как платформы для поиска работы, где требуется быстрое и надёжное управление данными пользователей, резюме и вакансий. MySQL работает на всех популярных платформах и легко интегрируется с облачными сервисами, такими как AWS, Google Cloud и Azure.
+
+Преимущества MySQL:
+
+\begin{enumerate}
+	\item Высокая производительность: Оптимизирована для быстрой обработки запросов, особенно в веб-приложениях с большим числом транзакций.
+	\item Масштабируемость: Поддерживает горизонтальное и вертикальное масштабирование через репликацию и кластеризацию.
+	\item Интеграция: Совместима с веб-фреймворками (Django, Laravel), NoSQL (MySQL Document Store) и платёжными системами.
+	\item Надёжность: Транзакции (InnoDB) и репликация обеспечивают целостность данных.
+	\item Поддержка сообщества: Обширная документация и активное сообщество разработчиков.
+\end{enumerate}
+
+Ограничения:
+
+\begin{enumerate}
+	\item Менее эффективна для сложных аналитических запросов по сравнению с PostgreSQL.
+	\item Требует оптимизации для работы с очень большими базами данных.
+\end{enumerate}
+
 \subsection{Архитектура программной системы}
 
-Диаграмма компонентов описывает физическую архитектуру web-платформы для поиска работы. Она иллюстрирует структуру системы, определяя зависимости между программными компонентами, включая исходный и исполняемый код.
+Диаграмма размещения описывает физическую архитектуру web-платформы для поиска работы. Она иллюстрирует структуру системы, определяя зависимости между программными компонентами, включая исходный и исполняемый код.
 
 На рисунке \ref{dc:image} изображена архитектура программной системы.
 
 \begin{figure}[ht]
-\center{\includegraphics[width=1\linewidth]{dc}}
-\caption{Архитектура программной системы}
+\center{\includegraphics[width=1\linewidth]{dc2}}
+\caption{Диаграмма размещения}
 \label{dc:image}
 \end{figure}
 
@@ -60,33 +88,57 @@ JavaScript — объектно-ориентированный язык прог
 
 \begin{enumerate}
 	\item Клиентская часть представлена устройством пользователя (ПК, смартфон или планшет), на котором установлен веб-браузер (например, Chrome, Firefox, Safari). В браузере работает Vue.js Frontend — клиентское приложение, обеспечивающее пользовательский интерфейс платформы. Через интерфейс пользователи (соискатели и работодатели) могут регистрироваться, создавать и редактировать резюме или вакансии, выполнять поиск по вакансиям/резюме и отправлять отклики. Взаимодействие между клиентской частью и сервером осуществляется по защищённому протоколу HTTPS, что гарантирует безопасность передачи данных, таких как личная информация пользователей и их действия на платформе.
-	\item Промежуточный сервер реализован с использованием Nginx, который выполняет роль связующего звена между клиентской частью и основным сервером.
 	\item Основной сервер реализован с использованием фреймворка Symfony, который отвечает за обработку запросов от клиентской части через REST API. Symfony обеспечивает бизнес-логику платформы, включая:
-	\begin{enumerate}
-		\item Управление пользователями (регистрация, авторизация, управление профилями).
-		\item Обработку данных о вакансиях и резюме (создание, редактирование, публикация).
-		\item Поиск и фильтрацию (например, по ключевым словам, локации, зарплате).
-		\item Обработку откликов на вакансии.
-	\end{enumerate}
-	Для хранения данных используется СУБД MySQL (или PostgreSQL), интегрированная с Symfony через ORM Doctrine, что упрощает управление данными и обеспечивает высокую производительность.
+
+	\begin{itemize}
+		\item управление пользователями;
+		\item обработку данных о вакансиях и резюме;
+		\item поиск и фильтрацию;
+		\item обработку откликов на вакансии.
+	\end{itemize}
+	
+	\item Для хранения данных используется СУБД MySQL, интегрированная с Symfony через ORM Doctrine, что упрощает управление данными и обеспечивает высокую производительность.
 \end{enumerate}
+
+\subsection{Диаграмма компонентов}
+
+Диаграмма компонентов показывает структуру системы и взаимодействие между её основными составляющими. Она демонстрирует, как данные передаются от одного компонента к другому и какие компоненты взаимодействуют с базой данных. На рисунке
+\ref{dcc:image} представлена диаграмма компонентов для проектируемой системы.
+
+\begin{landscape}
+\begin{figure}[H]
+	\center{\includegraphics[width=1\linewidth]{dcc21}}
+	\caption{Диаграмма компонентов}
+	\label{dcc:image}
+\end{figure}
+\end{landscape}
+
+Она представляет собой структуру системы, состоящую из следующих компонентов:
+\begin{enumerate}
+	\item Клиент (Vue.js/JavaScript) - фронтенд-слой, включающий Vue-компоненты для отображения интерфейса, Vue Router для маршрутизации и Vuex Store для управления состоянием приложения.
+	\item Веб-сервер (NGINX) - промежуточный слой, обслуживающий статические файлы и проксирующий API-запросы к backend-серверу.
+	\item Сервер (Symfony/PHP) - бэкенд-слой с API-контроллерами, формами и валидацией, бизнес-сервисами и Doctrine ORM для работы с базой данных.
+	\item База данных (MySQL) - слой хранения данных.
+\end{enumerate}
+Взаимодействие между компонентами осуществляется через HTTP/HTTPS протокол между клиентом и веб-сервером, FastCGI/PHP-FPM между веб-сервером и Symfony, и SQL/PDO соединения между приложением и базой данных MySQL.
 
 \subsection{Структура базы данных}
 
-Сущности и отношение между таблицами базы данных отражены на
-рисунке \ref{bd:image}
+Схема структуры базы данных системы, отражающая таблицы, их атрибуты, ключи и связи между ними отражена нарисунке \ref{db:image}
 
+\begin{landscape}
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{bd}}
-	\caption{ER-диаграмма}
-	\label{bd:image}
+	\center{\includegraphics[width=1\linewidth]{db1}}
+	\caption{Структура базы данных}
+	\label{db:image}
 \end{figure}
+\end{landscape}
 
 
 В таблице \ref{ssevsws:table} представлена структура таблицы resume.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица resume \label{ssevsws:table}}\\ \hline
+	\caption{Структура таблицы resume \label{ssevsws:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -109,7 +161,7 @@ JavaScript — объектно-ориентированный язык прог
 В таблице \ref{vacancy:table} представлена структура таблицы vacancy.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{vacancy:table}}\\ \hline
+	\caption{Структура таблицы vacancy \label{vacancy:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -135,7 +187,7 @@ JavaScript — объектно-ориентированный язык прог
 В таблице \ref{user:table} представлена структура таблицы user.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{user:table}}\\ \hline
+	\caption{Структура таблицы user \label{user:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -161,7 +213,7 @@ JavaScript — объектно-ориентированный язык прог
 В таблице \ref{company:table} представлена структура таблицы company.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{company:table}}\\ \hline
+	\caption{Структура таблицы company \label{company:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -178,10 +230,10 @@ JavaScript — объектно-ориентированный язык прог
 	foreign key & vacancies & integer & false \\ \hline
 \end{xltabular}
 
-В таблице \ref{country:table} представлена структура таблицы company.
+В таблице \ref{country:table} представлена структура таблицы country.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{country:table}}\\ \hline
+	\caption{Структура таблицы country \label{country:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -198,7 +250,7 @@ JavaScript — объектно-ориентированный язык прог
 В таблице \ref{district:table} представлена структура таблицы district.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{district:table}}\\ \hline
+	\caption{Структура таблицы district \label{district:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -216,7 +268,7 @@ JavaScript — объектно-ориентированный язык прог
 В таблице \ref{city:table} представлена структура таблицы city.
 
 \begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
-	\caption{Таблица vacancy \label{city:table}}\\ \hline
+	\caption{Структура таблицы city \label{city:table}}\\ \hline
 	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
 	данных & \centrow Обязательность \\ \hline
 	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
@@ -228,4 +280,302 @@ JavaScript — объектно-ориентированный язык прог
 	& name & string & true \\ \hline 
 	& techName & string & true \\ \hline 
 	foreign key & district & string & false \\ \hline 
+\end{xltabular}
+
+В таблице \ref{vacancyResponse:table} представлена структура таблицы vacancyResponse.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы vacancyResponse \label{vacancyResponse:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyResponse:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+    foreign key	& resume & integer & true \\ \hline 
+	foreign key	& vacancy & integer & true \\ \hline 
+	foreign key & status & integer & true \\ \hline 
+	foreign key & initiator & integer & true \\ \hline 
+\end{xltabular}
+
+В таблице \ref{awardAndAchievments:table} представлена структура таблицы awardAndAchievments.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы awardsAndAchievement \label{awardAndAchievments:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{awardAndAchievments:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline
+		& award & string & true \\ \hline
+	foreign key	& resume & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{education:table} представлена структура таблицы education.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы education \label{education:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{education:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline
+	foreign key	& levelEducation & string & true \\ \hline
+		& university & string & true \\ \hline
+		& speciality & string & true \\ \hline
+		& faculty & string & true \\ \hline
+		& graduationYear & int & true \\ \hline
+		foreign key	& resume & id & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{gender:table} представлена структура таблицы gender.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы gender \label{gender:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{gender:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline
+	& name & string & true \\ \hline
+	& techName & string & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{vacancyResponseStatus:table} представлена структура таблицы vacancyResponseStatus.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы vacancyResponseStatus \label{vacancyResponseStatus:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyResponseStatus:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline
+	& name & string & true \\ \hline
+	& techName & string & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{workPlace:table} представлена структура таблицы workPlace.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы workPlace \label{workPlace:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{workPlace:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline
+	foreign key	& workExperience & string & true \\ \hline
+	& startDate & date & true \\ \hline
+	& endDate & date & true \\ \hline
+	& organizationName & string & true \\ \hline
+	& professionName & string & true \\ \hline
+	foreign key	& resume & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{resumeCitizenshipCountry:table} представлена структура таблицы resumeCitizenshipCountry.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы resumeCitizenshipCountry \label{resumeCitizenshipCountry:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип
+	данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{resumeCitizenshipCountry:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key	& resume & string & true \\ \hline
+	primary key & country & date & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{incomePayment:table} представлена структура таблицы incomePayment.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы incomePayment \label{incomePayment:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{incomePayment:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{jobIndustry:table} представлена структура таблицы jobIndustry.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы jobIndustry \label{jobIndustry:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{jobIndustry:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{levelEducation:table} представлена структура таблицы levelEducation.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы levelEducation \label{levelEducation:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{levelEducation:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+
+В таблице \ref{userRoles:table} представлена структура таблицы userRoles.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы userRoles \label{userRoles:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{userRoles:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& displayName & string & true \\ \hline 
+	& baseRoute & string & false \\ \hline
+\end{xltabular}
+
+В таблице \ref{vacancyCompanyIndustry:table} представлена структура таблицы vacancyCompanyIndustry.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы vacancyCompanyIndustry \label{vacancyCompanyIndustry:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyCompanyIndustry:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{vacancyEducation:table} представлена структура таблицы vacancyEducation.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы vacancyEducation \label{vacancyEducation:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyEducation:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{vacancyEmploymentType:table} представлена структура таблицы vacancyEmploymentType.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы vacancyEmploymentType \label{vacancyEmploymentType:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyEmploymentType:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{vacancyIncomePayment:table} представлена структура таблицы vacancyIncomePayment.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы vacancyIncomePayment \label{vacancyIncomePayment:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyIncomePayment:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{vacancySpecializations:table} представлена структура таблицы vacancySpecializations.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы vacancySpecializations \label{vacancySpecializations:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancySpecializations:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{vacancyWorkExperience:table} представлена структура таблицы vacancyWorkExperience.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы vacancyWorkExperience \label{vacancyWorkExperience:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyWorkExperience:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
+\end{xltabular}
+
+В таблице \ref{vacancyWorkSchedule:table} представлена структура таблицы vacancyWorkSchedule.
+
+\begin{xltabular}{\textwidth}{|l|l|p{1.7cm}|X|}
+	\caption{Структура таблицы vacancyWorkSchedule \label{vacancyWorkSchedule:table}}\\ \hline
+	\centrow Тип ключа & \centrow Имя столбца & \centrow Тип данных & \centrow Обязательность \\ \hline
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\endfirsthead
+	\continuecaption{Продолжение таблицы \ref{vacancyWorkSchedule:table}}
+	\thead{1} & \thead{2} & \centrow 3 & \centrow 4 \\ \hline
+	\finishhead
+	primary key & id & integer & true \\ \hline 
+	& name & string & true \\ \hline 
+	& techName & string & false \\ \hline 
+	& position & integer & true \\ \hline
 \end{xltabular}
