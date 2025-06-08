@@ -43,19 +43,19 @@ UserApiController (Компонент управления пользовате�
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса UserApiController \label{User:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{User:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	Request &  Данные из HTTP-запросов (JSON) для валидации и обработки форм. \\ \hline
 	User &  Сущность, представляющая пользователя. \\ \hline
 	UserRoles &  Сущность, представляющая роли пользователей. \\ \hline
@@ -67,19 +67,19 @@ UserApiController (Компонент управления пользовате�
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса  UserApiController \label{UserMet:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{UserMet:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	userRegistration(Request \$request, UserRolesRepository \$userRolesRepository, EntityManagerInterface \$entityManager, UserPasswordHasherInterface \$passwordHasher) &  Валидирует входные данные, хэширует пароль и сохраняет нового пользователя в базе данных. \\ \hline
 	getAuthUserInfo(UserRepository \$repository) &  Возвращает информацию об авторизованном пользователе в формате JSON с кодом 200. \\ \hline
 	getUserRoles(UserRolesRepository \$repository) &  Возвращает список всех ролей пользователей в формате JSON с кодом 200. \\ \hline
@@ -130,19 +130,19 @@ VacancyApiController (Компонент управления вакансиям
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса VacancyApiController \label{Vacancy:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{Vacancy:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	Request &  Данные из HTTP-запросов (JSON) для валидации и обработки форм. \\ \hline
 	Vacancy &  Сущность, представляющая вакансию. \\ \hline
 	ApiVacancyType &  Форма для валидации данных при создании вакансии. \\ \hline
@@ -154,19 +154,19 @@ VacancyApiController (Компонент управления вакансиям
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса  VacancyApiController \label{VacancyM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{VacancyM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	getManyVacancies(Request \$request, VacancyRepository \$vacancyRepository) &  Возвращает отфильтрованный список вакансий с пагинацией и информацией о фильтрах в формате JSON с кодом 200. \\ \hline
 	newVacancy(Request \$request, EntityManagerInterface \$entityManager) &  Валидирует входные данные, сохраняет новую вакансию в базе данных. \\ \hline
 	getSingleVacancy(Vacancy \$vacancy, VacancyRepository \$vacancyRepository) &  Возвращает данные об одной вакансии по её идентификатору в формате JSON. \\ \hline
@@ -212,19 +212,19 @@ VacancyParametersApiController (компонент управления пара
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса VacancyParametersApiController \label{VacancyPar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{VacancyPar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	vacancyParameter &  Строка, определяющая тип параметра вакансии (часть имени класса сущности). \\ \hline
 	ManagerRegistry &  Интерфейс для получения репозитория сущностей Doctrine. \\ \hline
 	NotFoundHttpException &  Исключение, выбрасываемое при отсутствии запрошенного типа параметра. \\ \hline
@@ -234,19 +234,19 @@ VacancyParametersApiController (компонент управления пара
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса  VacancyParametersApiController \label{VacancypM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{VacancypM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	getManyVacancyParameters(string \$vacancyParameter, ManagerRegistry \$doctrine) &  Возвращает список всех параметров вакансии для указанного типа. \\ \hline
 	getSingleVacancyParameters(string \$vacancyParameter, int \$id, ManagerRegistry \$doctrine) &  Возвращает данные об одном параметре вакансии по его идентификатору. \\ \hline
 \end{xltabular}
@@ -295,19 +295,19 @@ ResumeApiController (компонент управления резюме чер
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса ResumeApiController \label{Resume:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{Resume:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	Request &  Данные из HTTP-запросов (JSON) для валидации и обработки форм. \\ \hline
 	Resume &  Сущность, представляющая резюме. \\ \hline
 	ResumeApiType &  Форма для валидации данных при создании резюме. \\ \hline
@@ -319,19 +319,19 @@ ResumeApiController (компонент управления резюме чер
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса  VacancyParametersApiController \label{ResumeM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{ResumeM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	getManyResumes(ResumeRepository \$resumeRepository, Request \$request) &  Возвращает отфильтрованный список резюме с пагинацией и информацией о фильтрах. \\ \hline
 	getSingleResume(Resume \$resume, ResumeRepository \$resumeRepository) &  Возвращает данные об одном резюме по его идентификатору. \\ \hline
 	newResume(Request \$request, EntityManagerInterface \$entityManager) &  Валидирует входные данные, сохраняет новое резюме в базе данных. \\ \hline
@@ -378,19 +378,19 @@ ResumeParametersApiController (компонент управления пара�
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса ResumeParametersApiController \label{ResumePar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{ResumePar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	resumeParameter & Строка, определяющая тип параметра резюме (часть имени класса сущности). \\ \hline
 	ManagerRegistry & Интерфейс для получения репозитория сущностей Doctrine. \\ \hline
 	NotFoundHttpException & Исключение, выбрасываемое при отсутствии запрошенного типа параметра. \\ \hline
@@ -400,19 +400,19 @@ ResumeParametersApiController (компонент управления пара�
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса ResumeParametersApiController \label{ResumePM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{ResumePM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	getManyResumeParameters(string \$resumeParameter, ManagerRegistry \$doctrine) & Возвращает список всех параметров резюме для указанного типа. \\ \hline
 	getSingleResumeParameters(string \$resumeParameter, int \$id, ManagerRegistry \$doctrine) & Возвращает данные об одном параметре резюме по его идентификатору. \\ \hline
 \end{xltabular}
@@ -465,19 +465,19 @@ CompanyApiController (компонент управления компаниям
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса CompanyApiController \label{CompanyPar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{CompanyPar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	Request & Данные из HTTP-запросов (JSON) для валидации и обработки форм. \\ \hline
 	Company & Сущность, представляющая компанию. \\ \hline
 	CompanyApiType & Форма для валидации данных при создании и обновлении компании. \\ \hline
@@ -490,19 +490,19 @@ CompanyApiController (компонент управления компаниям
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса CompanyApiController \label{CompanyPM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{CompanyPM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	getManyCompanies(CompanyRepository \$companyRepository, Request \$request) & Возвращает отфильтрованный список компаний с пагинацией и информацией о фильтрах в формате JSON с кодом 200. \\ \hline
 	getSingleCompany(Company \$company, CompanyRepository \$companyRepository) & Возвращает данные об одной компании по её идентификатору в формате JSON с кодом 200. \\ \hline
 	newCompany(Request \$request, EntityManagerInterface \$entityManager) & Валидирует входные данные, сохраняет новую компанию в базе данных. Возвращает HTTP-ответ с кодом 201 при успехе или 400 при ошибке. \\ \hline
@@ -560,19 +560,19 @@ VacancyResponseApiController (компонент управления откли
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса VacancyResponseApiController \label{VacancyResponsePar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{VacancyResponsePar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	Request & Данные из HTTP-запросов (JSON) для валидации и обработки форм. \\ \hline
 	VacancyResponse & Сущность, представляющая отклик на вакансию. \\ \hline
 	Resume & Сущность, представляющая резюме пользователя. \\ \hline
@@ -586,19 +586,19 @@ VacancyResponseApiController (компонент управления откли
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса VacancyResponseApiController \label{VacancyResponsePM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{VacancyResponsePM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	newVacancyResponse(Request \$request, VacancyResponseStatusRepository \$vacancyResponseStatusRepository, EntityManagerInterface \$entityManager, UserRepository \$userRepository) & Валидирует входные данные, сохраняет новый отклик на вакансию в базе данных. Возвращает HTTP-ответ с кодом 201 при успехе, 400 при ошибке валидации или 300 при отсутствии активных резюме. \\ \hline
 	userResume(VacancyResponse Repository \$vacancyResponseRepository) & Возвращает список откликов, связанных с авторизованным пользователем, в формате JSON с кодом 200. \\ \hline
 \end{xltabular}
@@ -638,19 +638,19 @@ CityApiController (компонент управления городами че
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса CityApiController \label{CityPar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{CityPar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	City & Сущность, представляющая город. \\ \hline
 	CityRepository & Репозиторий для работы с сущностью City. \\ \hline
 \end{xltabular}
@@ -659,19 +659,19 @@ CityApiController (компонент управления городами че
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса CityApiController \label{CityPM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{CityPM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	getCityList(CityRepository \$cityRepository) & Возвращает список всех городов в формате JSON с кодом 200. \\ \hline
 	getSingleCity(City \$city, CityRepository \$cityRepository) & Возвращает данные об одном городе по его идентификатору в формате JSON с кодом 200. \\ \hline
 \end{xltabular}
@@ -720,19 +720,19 @@ DoctrineFiltersEnabledSubscriber (сервис для управления фи�
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса DoctrineFiltersEnabledSubscriber \label{DoctrineFiltersPar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{DoctrineFiltersPar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	EntityManagerInterface & Интерфейс для управления фильтрами Doctrine. \\ \hline
 	RequestEvent & Событие HTTP-запроса для обработки маршрутов и URI. \\ \hline
 	ConsoleCommandEvent & Событие консольной команды для обработки команды app:search-import. \\ \hline
@@ -742,19 +742,19 @@ DoctrineFiltersEnabledSubscriber (сервис для управления фи�
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса DoctrineFiltersEnabledSubscriber \label{DoctrineFiltersPM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{DoctrineFiltersPM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	getSubscribedEvents() & Возвращает массив подписанных событий для обработки HTTP-запросов и консольных команд. \\ \hline
 	onKernelRequest(RequestEvent \$event) & Обрабатывает HTTP-запросы, вызывая методы проверки и включения фильтров. \\ \hline
 	onConsoleCommand(Console
@@ -806,19 +806,19 @@ FilterService (сервис для управления фильтрацией �
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса FilterService \label{FilterServicePar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{FilterServicePar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	EntityManagerInterface & Интерфейс для работы с Doctrine и QueryBuilder. \\ \hline
 	Request & Объект HTTP-запроса для получения параметров фильтров. \\ \hline
 	ReflectionClass & Класс для анализа полей сущностей через рефлексию. \\ \hline
@@ -830,19 +830,19 @@ FilterService (сервис для управления фильтрацией �
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса FilterService \label{FilterServicePM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{FilterServicePM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	parseFilters(Request \$request) & Парсит параметры фильтров из HTTP-запроса и возвращает их в виде массива. \\ \hline
 	applyFilters(QueryBuilder \$qb, array \$filters, string \$entityClass) & Применяет фильтры к QueryBuilder на основе фильтруемых полей сущности. \\ \hline
 	getFilterableFields(ReflectionClass \$reflection) & Возвращает массив фильтруемых полей сущности, определенных атрибутом Filterable. \\ \hline
@@ -889,19 +889,19 @@ StringHelperService (Сервис для обработки строк)
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Поля класса класса StringHelperService \label{StringHelperServicePar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{StringHelperServicePar:table}} \\
-	\hline
-	\centrow Поле &
+	\hline 
+	\centrow Поле & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	KEYSPACE & Строка, содержащая набор символов для генерации случайных строк. \\ \hline
 \end{xltabular}
 
@@ -909,19 +909,19 @@ StringHelperService (Сервис для обработки строк)
 
 \begin{xltabular}{\textwidth}{|X|X|}
 	\caption{Методы класса StringHelperService \label{StringHelperServicePM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание \\
-	\hline
+	\hline 
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{StringHelperServicePM:table}} \\
-	\hline
-	\centrow Метод &
+	\hline 
+	\centrow Метод & 
 	\centrow Описание  \\
-	\hline
+	\hline 
 	\endhead
-
+	
 	getRandomStr(int \$length) & Генерирует случайную строку заданной длины из набора символов. \\ \hline
 	generateSlugForEntity(string \$string, bool \$unique = true) & Создает слаг из строки с возможным добавлением уникального суффикса. \\ \hline
 	translitRuToEn(string \$text) & Транслитерирует русский текст в английский, заменяя специальные символы на дефисы. \\ \hline
@@ -992,7 +992,7 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{tab:newvacancy}} \\
 	\hline
 	\centrow Описание теста &
@@ -1000,11 +1000,11 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endhead
-
+	
 	Создание новой вакансии с валидными данными и авторизацией. & POST запрос с данными: name= \enquote{test}, workAddress= \enquote{test}, description= \enquote{test}, specializations= [1], isEnabled= true. Заголовок Authorization с Bearer токеном. & HTTP код 201, JSON объект созданной вакансии с присвоенным ID. Данные сохранены в БД. \\ \hline
-
+	
 	Создание вакансии с невалидными данными (пустые обязательные поля). & POST запрос с данными: name=\enquote{ }, workAddress=\enquote{ }, description=\enquote{ }, specializations=[1]. & HTTP код 300, JSON с сообщением об ошибке валидации "Validation Failed". \\ \hline
-
+	
 	Попытка создания вакансии без авторизации. & POST запрос с валидными данными без заголовка Authorization. & HTTP код 401, ошибка неавторизованного доступа. \\ \hline
 \end{xltabular}
 
@@ -1020,7 +1020,7 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{tab:newResume}} \\
 	\hline
 	\centrow Описание теста &
@@ -1028,11 +1028,11 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endhead
-
+	
 	Создание нового резюме с валидными данными и авторизацией. & POST запрос на /api/resume/new с JSON: \{ \enquote{title}: \enquote{Test Resume}, \enquote{workPlace}: [\{ \enquote{company}: \enquote{Test Corp}, \enquote{position}: \enquote{Developer} \}], \enquote{education}: [\{ \enquote{institution}: \enquote{Test University}, \enquote{degree}: \enquote{Bachelor} \}] \}. Заголовок Authorization с Bearer токеном. & HTTP код 201, JSON объект созданного резюме с полями: id, title, workPlace, education, user. Данные сохранены в БД, связи workPlace и education корректно установлены. \\ \hline
-
+	
 	Создание резюме с невалидными данными (пустое обязательное поле). & POST запрос на /api/resume/new с JSON: \{ \enquote{title}: \enquote{}, \enquote{workPlace}: [], \enquote{education}: [] \}. Заголовок Authorization с Bearer токеном. & HTTP код 300, JSON с сообщением об ошибке валидации \enquote{Validation Failed: Title cannot be empty}. \\ \hline
-
+	
 	Попытка создания резюме без авторизации. & POST запрос на /api/resume/new с валидными данными: \{ \enquote{title}: \enquote{Test Resume}, \enquote{workPlace}: [\{ \enquote{company}: \enquote{Test Corp}, \enquote{position}: \enquote{Developer} \}], \enquote{education}: [\{ \enquote{institution}: \enquote{Test University}, \enquote{degree}: \enquote{Bachelor} \}] \} без заголовка Authorization. & HTTP код 401, JSON с сообщением об ошибке \enquote{Unauthorized}. \\ \hline
 \end{xltabular}
 
@@ -1050,7 +1050,7 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{tab:userRegistration}} \\
 	\hline
 	\centrow Описание теста &
@@ -1058,17 +1058,17 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endhead
-
+	
 	Регистрация нового пользователя с валидными данными. & POST запрос на /api/registration с JSON: \{ \enquote{email}: \enquote{test@example.com}, \enquote{password}: \enquote{ValidPass123}, \enquote{username}: \enquote{testuser} \}. & HTTP код 201, JSON объект созданного пользователя с полями: id, email, username (без пароля). Данные сохранены в БД, пароль хеширован. \\ \hline
-
+	
 	Регистрация с невалидными данными (пустой email). & POST запрос на /api/registration с JSON: \{ \enquote{email}: \enquote{}, \enquote{password}: \enquote{ValidPass123}, \enquote{username}: \enquote{testuser} \}. & HTTP код 300, JSON с сообщением об ошибке валидации \enquote{Validation Failed: Email cannot be empty}. \\ \hline
-
+	
 	Регистрация с уже существующим email. & POST запрос на /api/registration с JSON: \{ \enquote{email}: \enquote{existing@example.com}
 	, \enquote{password}: \enquote{ValidPass123}, \enquote{username}: \enquote{testuser} \}, где email уже есть в БД. & HTTP код 300, JSON с сообщением об ошибке \enquote{Email already exists}. \\ \hline
 \end{xltabular}
 
 
-\subsubsection{Тестовые наборы для класса CompanyApiController}
+\subsubsection{Тестовые наборы для класса CompanyApiController} 
 В таблице \ref{tab:newCompany} представлены тестовые наборы для функции newCompany класса CompanyApiController.
 
 \begin{xltabular}{\textwidth}{|X|X|X|}
@@ -1079,7 +1079,7 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{tab:newCompany}} \\
 	\hline
 	\centrow Описание теста &
@@ -1087,13 +1087,13 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endhead
-
+	
 	Создание новой компании с валидными данными, авторизацией и ролью ROLE\_EMPLOYER. & POST запрос на /api/company/new с JSON: \{ \enquote{name}: \enquote{Test Company}, \enquote{address}: \enquote{123 Test St}, \enquote{description}: \enquote{Test description} \}. Заголовок Authorization с Bearer токеном пользователя с ролью ROLE\_EMPLOYER. & HTTP код 201, JSON объект созданной компании с полями: id, name, address, description, isConfirmed=false, user. Данные сохранены в БД. \\ \hline
-
+	
 	Создание компании с невалидными данными (пустое обязательное поле). & POST запрос на /api/company/new с JSON: \{ \enquote{name}: \enquote{}, \enquote{address}: \enquote{123 Test St}, \enquote{description}: \enquote{Test description} \}. Заголовок Authorization с Bearer токеном пользователя с ролью ROLE\_EMPLOYER. & HTTP код 400, JSON с сообщением об ошибке валидации \enquote{Validation Failed: Name cannot be empty}. \\ \hline
-
+	
 	Попытка создания компании без роли ROLE\_EMPLOYER. & POST запрос на /api/company/new с валидными данными: \{ \enquote{name}: \enquote{Test Company}, \enquote{address}: \enquote{123 Test St}, \enquote{description}: \enquote{Test description} \}. Заголовок Authorization с Bearer токеном пользователя без роли ROLE\_EMPLOYER. & HTTP код 403, JSON с сообщением об ошибке \enquote{Access denied}. \\ \hline
-
+	
 	Попытка создания компании без авторизации. & POST запрос на /api/company/new с валидными данными: \{ \enquote{name}: \enquote{Test Company}, \enquote{address}: \enquote{123 Test St}, \enquote{description}: \enquote{Test description} \} без заголовка Authorization. & HTTP код 401, JSON с сообщением об ошибке \enquote{Unauthorized}. \\ \hline
 \end{xltabular}
 
@@ -1109,7 +1109,7 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{tab:newVacancyResponse}} \\
 	\hline
 	\centrow Описание теста &
@@ -1117,11 +1117,11 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endhead
-
+	
 	Создание нового отклика на вакансию с валидными данными и авторизацией. & POST запрос на /api/vacancy\_response/new с JSON: \{ \enquote{vacancyId}: 1, \enquote{resumeId}: 1, \enquote{coverLetter}: \enquote{Test cover letter} \}. Заголовок Authorization с Bearer токеном авторизованного пользователя. & HTTP код 201, JSON объект созданного отклика с полями: id, vacancyId, resumeId, status, initiator. Данные сохранены в БД. \\ \hline
-
+	
 	Создание отклика с невалидными данными (несуществующий ID вакансии). & POST запрос на /api/vacancy\_response/ new с JSON: \{ \enquote{vacancyId}: 999, \enquote{resumeId}: 1, \enquote{coverLetter}: \enquote{Test cover letter} \}. Заголовок Authorization с Bearer токеном. & HTTP код 300, JSON с сообщением об ошибке валидации \enquote{Validation Failed: Vacancy not found}. \\ \hline
-
+	
 	Попытка создания отклика без авторизации. & POST запрос на /api/vacancy\_response/ new с валидными данными: \{ \enquote{vacancyId}: 1, \enquote{resumeId}: 1, \enquote{coverLetter}: \enquote{Test cover letter} \} без заголовка Authorization. & HTTP код 401, JSON с сообщением об ошибке \enquote{Unauthorized}. \\ \hline
 \end{xltabular}
 
@@ -1137,7 +1137,7 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{tab:parseFilters}} \\
 	\hline
 	\centrow Описание теста &
@@ -1145,11 +1145,11 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endhead
-
+	
 	Парсинг валидных фильтров с различными типами значений. & GET запрос с параметрами: ?name=Test \&skills=php,javascript \&salary=100-500 \&active=true. & Массив: \{ \enquote{name}: \enquote{Test}, \enquote{skills}: [\enquote{php}, \enquote{javascript}], \enquote{salary}: \{ \enquote{from}: 100, \enquote{to}: 500 \}, \enquote{active}: \enquote{true} \}. \\ \hline
-
+	
 	Парсинг запроса с невалидными значениями (пустые и null). & GET запрос с параметрами: ?name=\&skills=\&active=null. & Пустой массив: \{ \}. \\ \hline
-
+	
 	Парсинг запроса с некорректным форматом диапазона. & GET запрос с параметрами: ?salary=100-abc. & Массив: \{ \enquote{salary}: \enquote{100-abc} \}, так как строка не соответствует формату диапазона и возвращается без изменений. \\ \hline
 \end{xltabular}
 
@@ -1163,7 +1163,7 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endfirsthead
-
+	
 	\caption*{Продолжение таблицы \ref{tab:applyFilters}} \\
 	\hline
 	\centrow Описание теста &
@@ -1171,11 +1171,11 @@ StringHelperService (Сервис для обработки строк)
 	\centrow Эталонные выходные данные \\
 	\hline
 	\endhead
-
+	
 	Применение валидных фильтров с различными типами. & QueryBuilder для сущности App/Entity/Vacancy, массив фильтров: \{ \enquote{name}: \enquote{Developer}, \enquote{salary}: \{ \enquote{from}: 1000, \enquote{to}: 5000 \}, \enquote{skills}: [\enquote{php}, \enquote{javascript}] \}. Поля name (тип LIKE), salary (тип RANGE), skills (тип IN) помечены как Filterable. & QueryBuilder с добавленными условиями: a.name LIKE :param\_0 с параметром \%Developer\%, a.salary >= :param\_1\_from с параметром 1000, a.salary <= :param\_1\_to с параметром 5000, a.skills IN (:param\_2) с параметром [\enquote{php}, \enquote{javascript}]. \\ \hline
-
+	
 	Применение фильтра с несуществующим полем. & QueryBuilder для сущности App/Entity/Vacancy, массив фильтров: \{ \enquote{invalidField}: \enquote{Test} \}. Поле invalidField не помечено как Filterable. & QueryBuilder без изменений, так как несуществующее поле игнорируется. \\ \hline
-
+	
 	Применение фильтра с некорректным типом. & QueryBuilder для сущности App/Entity/Vacancy, массив фильтров: \{ \enquote{name}: \enquote{Test} \}. Поле name помечено как Filterable с неизвестным типом INVALID\_TYPE. & Выбрасывается исключение InvalidArgumentException с сообщением \enquote{Unknown filter type: INVALID\_TYPE}. \\ \hline
 \end{xltabular}
 
@@ -1192,7 +1192,7 @@ StringHelperService (Сервис для обработки строк)
 ное окно интерфейса.
 
 На рисунке \ref{landing:image} представлена главная страница сайта.
-\begin{figure}[H]
+\begin{figure}[H] 
 \center{\includegraphics[width=1\linewidth]{landing}}
 \caption{Главная страница}
 \label{landing:image}
