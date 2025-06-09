@@ -2,9 +2,10 @@
 \subsection{Спецификация компонентов и классов системы}
 
 \subsubsection{Спецификация класса UserApiController}
-UserApiController (Компонент управления пользователями через API)
 
-Описание: Управляет операциями, связанными с регистрацией пользователей и получением информации о текущем авторизованном пользователе через API. Взаимодействует с сущностью User и использует формы для обработки данных.
+UserApiController (Компонент управления пользователями через API).
+
+Описание: управляет операциями, связанными с регистрацией пользователей и получением информации о текущем авторизованном пользователе через API. Взаимодействует с сущностью User и использует формы для обработки данных.
 
 Валидация данных:
 \begin{itemize}
@@ -86,9 +87,9 @@ UserApiController (Компонент управления пользовате�
 \end{xltabular}
 
 \subsubsection{Спецификация класса VacancyApiController}
-VacancyApiController (Компонент управления вакансиями через API)
+VacancyApiController (Компонент управления вакансиями через API).
 
-Описание: Управляет операциями, связанными с вакансиями, такими как создание, получение списка вакансий, получение данных об отдельной вакансии и получение вакансий, связанных с авторизованным пользователем. Реализует REST API и взаимодействует с сущностью Vacancy.
+Описание: управляет операциями, связанными с вакансиями, такими как создание, получение списка вакансий, получение данных об отдельной вакансии и получение вакансий, связанных с авторизованным пользователем. Реализует REST API и взаимодействует с сущностью Vacancy.
 
 Валидация данных:
 
@@ -118,6 +119,7 @@ VacancyApiController (Компонент управления вакансиям
 \end{itemize}
 
 Зависимости:
+
 \begin{itemize}
 	\item взаимодействует с сущностью Vacancy и репозиторием VacancyRepository;
 	\item использует ApiVacancyType для обработки форм создания вакансий;
@@ -173,88 +175,11 @@ VacancyApiController (Компонент управления вакансиям
 	userVacancy(VacancyRepository \$vacancyRepository) &  Возвращает список вакансий, связанных с авторизованным пользователем. \\ \hline
 \end{xltabular}
 
-\subsubsection{Спецификация класса VacancyParametersApiController}
-VacancyParametersApiController (компонент управления параметрами вакансий через API)
-
-Описание:Управляет операциями получения параметров вакансий через REST API. Обеспечивает получение списка всех параметров определенного типа или данных об одном параметре по его идентификатору. Взаимодействует с сущностями, связанными с параметрами вакансий.
-
-Валидация данных:
-\begin{itemize}
-	\item отсутствует валидация входных данных, так как методы обрабатывают GET-запросы с параметрами, передаваемыми в URL;
-	\item проверяется существование запрошенного типа параметра вакансии, в случае ошибки выбрасывается исключение NotFoundHttpException.
-\end{itemize}
-
-Связи:
-\begin{itemize}
-	\item параметры вакансий связаны с сущностями в пространстве имен App/Entity/Vacancy/Vacancy, определяемыми динамически через параметр vacancyParameter.
-\end{itemize}
-
-Безопасность:
-\begin{itemize}
-	\item использует FOSRestBundle для обработки REST-запросов и формирования стандартизированных JSON-ответов;
-	\item не реализует дополнительной аутентификации или авторизации, доступ к методам предполагается открытым.
-\end{itemize}
-
-Основные методы:
-\begin{itemize}
-	\item getManyVacancyParameters(string \$vacancyParameter, ManagerRegistry \$doctrine): возвращает список всех параметров вакансии для указанного типа;
-	\item getSingleVacancyParameters(string \$vacancyParameter, int \$id, ManagerRegistry \$doctrine): возвращает данные об одном параметре вакансии по его идентификатору.
-\end{itemize}
-
-Зависимости:
-\begin{itemize}
-	\item взаимодействует с сущностями, определенными в пространстве имен App/Entity/Vacancy/Vacancy, через ManagerRegistry для динамического получения репозитория;
-	\item использует FOSRestBundle для обработки REST-запросов и формирования JSON-ответов;
-	\item применяет Symfony/Component/HttpKernel/Exception/NotFoundHttpException для обработки ошибок при неверном типе параметра.
-\end{itemize}
-
-В таблице \ref{VacancyPar:table} представлены данные класса VacancyParametersApiController.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Поля класса класса VacancyParametersApiController \label{VacancyPar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{VacancyPar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	vacancyParameter &  Строка, определяющая тип параметра вакансии (часть имени класса сущности). \\ \hline
-	ManagerRegistry &  Интерфейс для получения репозитория сущностей Doctrine. \\ \hline
-	NotFoundHttpException &  Исключение, выбрасываемое при отсутствии запрошенного типа параметра. \\ \hline
-\end{xltabular}
-
-В таблице \ref{VacancypM:table} представлены методы класса VacancyParametersApiController.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Методы класса  VacancyParametersApiController \label{VacancypM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{VacancypM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	getManyVacancyParameters(string \$vacancyParameter, ManagerRegistry \$doctrine) &  Возвращает список всех параметров вакансии для указанного типа. \\ \hline
-	getSingleVacancyParameters(string \$vacancyParameter, int \$id, ManagerRegistry \$doctrine) &  Возвращает данные об одном параметре вакансии по его идентификатору. \\ \hline
-\end{xltabular}
-
 \subsubsection{Спецификация класса ResumeApiController}
-ResumeApiController (компонент управления резюме через API)
 
-Описание: Управляет операциями, связанными с резюме, включая создание, получение списка резюме, получение данных об одном резюме и получение резюме, связанных с авторизованным пользователем. Реализует REST API и взаимодействует с сущностью Resume.
+ResumeApiController (компонент управления резюме через API).
+
+Описание: управляет операциями, связанными с резюме, включая создание, получение списка резюме, получение данных об одном резюме и получение резюме, связанных с авторизованным пользователем. Реализует REST API и взаимодействует с сущностью Resume.
 
 Валидация данных:
 \begin{itemize}
@@ -338,183 +263,12 @@ ResumeApiController (компонент управления резюме чер
 	userResume(ResumeRepository \$resumeRepository) &  Возвращает список резюме, связанных с авторизованным пользователем. \\ \hline
 \end{xltabular}
 
-\subsubsection{Спецификация класса ResumeParametersApiController}
-ResumeParametersApiController (компонент управления параметрами резюме через API)
-
-Описание: Управляет операциями получения параметров резюме через REST API. Обеспечивает получение списка всех параметров определенного типа или данных об одном параметре по его идентификатору. Взаимодействует с сущностями, связанными с параметрами резюме.
-
-Валидация данных:
-\begin{itemize}
-	\item отсутствует валидация входных данных, так как методы обрабатывают GET-запросы с параметрами, передаваемыми в URL;
-	\item проверяется существование запрошенного типа параметра резюме, в случае ошибки выбрасывается исключение NotFoundHttpException.
-\end{itemize}
-
-Связи:
-\begin{itemize}
-	\item параметры резюме связаны с сущностями в пространстве имен App/Entity/Resume, определяемыми динамически через параметр resumeParameter;
-\end{itemize}
-
-Безопасность:
-\begin{itemize}
-	\item использует FOSRestBundle для обработки REST-запросов и формирования стандартизированных JSON-ответов;
-	\item не реализует дополнительной аутентификации или авторизации, доступ к методам предполагается открытым.
-\end{itemize}
-
-
-Основные методы:
-\begin{itemize}
-	\item getManyResumeParameters(string \$resumeParameter, ManagerRegistry \$doctrine): возвращает список всех параметров резюме для указанного типа;
-	\item getSingleResumeParameters(string \$resumeParameter, int \$id, ManagerRegistry \$doctrine): возвращает данные об одном параметре резюме по его идентификатору.
-\end{itemize}
-
-Зависимости:
-\begin{itemize}
-	\item взаимодействует с сущностями, определенными в пространстве имен App/Entity/Resume, через ManagerRegistry для динамического получения репозитория;
-	\item использует FOSRestBundle для обработки REST-запросов и формирования JSON-ответов;
-	\item применяет Symfony/Component/HttpKernel/Exception/NotFoundHttpException для обработки ошибок при неверном типе параметра.
-\end{itemize}
-
-В таблице \ref{ResumePar:table} представлены данные класса ResumeParametersApiController.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Поля класса класса ResumeParametersApiController \label{ResumePar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{ResumePar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	resumeParameter & Строка, определяющая тип параметра резюме (часть имени класса сущности). \\ \hline
-	ManagerRegistry & Интерфейс для получения репозитория сущностей Doctrine. \\ \hline
-	NotFoundHttpException & Исключение, выбрасываемое при отсутствии запрошенного типа параметра. \\ \hline
-\end{xltabular}
-
-В таблице \ref{ResumePM:table} представлены методы класса ResumeParametersApiController.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Методы класса ResumeParametersApiController \label{ResumePM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{ResumePM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	getManyResumeParameters(string \$resumeParameter, ManagerRegistry \$doctrine) & Возвращает список всех параметров резюме для указанного типа. \\ \hline
-	getSingleResumeParameters(string \$resumeParameter, int \$id, ManagerRegistry \$doctrine) & Возвращает данные об одном параметре резюме по его идентификатору. \\ \hline
-\end{xltabular}
-
-\subsubsection{Спецификация класса CompanyApiController}
-CompanyApiController (компонент управления компаниями через API)
-
-Описание: Управляет операциями, связанными с компаниями, включая создание, получение списка компаний, получение данных об одной компании, обновление и удаление компаний, а также получение компаний, связанных с авторизованным пользователем. Реализует REST API и взаимодействует с сущностью Company.
-
-Валидация данных:
-\begin{itemize}
-	\item в методах newCompany() и updateCompany() используется форма CompanyApiType для валидации входных данных, полученных в формате JSON;
-	\item проверяет корректность полей компании перед сохранением в базе данных.
-\end{itemize}
-
-Связи:
-\begin{itemize}
-	\item компании связаны с пользователем через поле user, устанавливаемое автоматически для авторизованного пользователя.
-\end{itemize}
-
-Безопасность:
-\begin{itemize}
-	\item использует FOSRestBundle для обработки REST-запросов и формирования стандартизированных JSON-ответов;
-	\item проверяет роль ROLE\_EMPLOYER для создания компании в методе newCompany();
-	\item ограничивает доступ к методам updateCompany() и deleteCompany(), проверяя, является ли пользователь владельцем компании;
-	\item доступ к методу userCompanies() ограничен для авторизованных пользователей через getUser().
-\end{itemize}
-
-Основные методы:
-\begin{itemize}
-	\item getManyCompanies(CompanyRepository \$companyRepository, Request \$request): возвращает отфильтрованный список компаний с пагинацией и информацией о фильтрах;
-	\item getSingleCompany(Company \$company, CompanyRepository \$companyRepository): возвращает данные об одной компании по её идентификатору;
-	\item newCompany(Request \$request, EntityManagerInterface \$entityManager): создает новую компанию, валидирует данные и сохраняет их в базе данных;
-	\item updateCompany(Company \$company, Request \$request, EntityManagerInterface \$entityManager): обновляет данные компании после валидации;
-	\item deleteCompany(Company \$company, EntityManagerInterface \$entityManager): удаляет компанию из базы данных;
-	\item userCompanies(CompanyRepository \$companyRepository): возвращает список компаний, связанных с авторизованным пользователем.
-\end{itemize}
-
-Зависимости:
-\begin{itemize}
-	\item взаимодействует с сущностью Company и репозиторием CompanyRepository;
-	\item использует CompanyApiType для обработки форм создания и обновления компаний;
-	\item зависит от Doctrine/ORM/EntityManagerInterface для работы с базой данных;
-	\item применяет FilterService для обработки и применения фильтров в методе getManyCompanies;
-	\item использует FOSRestBundle для обработки REST-запросов и формирования JSON-ответов;
-	\item применяет Symfony/Component/HttpKernel/Exception/AccessDeniedHttpException для обработки ошибок доступа.
-\end{itemize}
-
-В таблице \ref{CompanyPar:table} представлены данные класса CompanyApiController.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Поля класса класса CompanyApiController \label{CompanyPar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{CompanyPar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	Request & Данные из HTTP-запросов (JSON) для валидации и обработки форм. \\ \hline
-	Company & Сущность, представляющая компанию. \\ \hline
-	CompanyApiType & Форма для валидации данных при создании и обновлении компании. \\ \hline
-	FilterService & Сервис для обработки и применения фильтров к списку компаний. \\ \hline
-	EntityManagerInterface & Интерфейс для работы с базой данных через Doctrine. \\ \hline
-	AccessDeniedHttpException & Исключение, выбрасываемое при отсутствии прав доступа. \\ \hline
-\end{xltabular}
-
-В таблице \ref{CompanyPM:table} представлены методы класса CompanyApiController.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Методы класса CompanyApiController \label{CompanyPM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{CompanyPM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	getManyCompanies(CompanyRepository \$companyRepository, Request \$request) & Возвращает отфильтрованный список компаний с пагинацией и информацией о фильтрах в формате JSON с кодом 200. \\ \hline
-	getSingleCompany(Company \$company, CompanyRepository \$companyRepository) & Возвращает данные об одной компании по её идентификатору в формате JSON с кодом 200. \\ \hline
-	newCompany(Request \$request, EntityManagerInterface \$entityManager) & Валидирует входные данные, сохраняет новую компанию в базе данных. Возвращает HTTP-ответ с кодом 201 при успехе или 400 при ошибке. \\ \hline
-	updateCompany(Company \$company, Request \$request, EntityManagerInterface \$entityManager) & Обновляет данные компании после валидации. Возвращает HTTP-ответ с кодом 200 при успехе, 400 при ошибке валидации или 403 при отсутствии прав. \\ \hline
-	deleteCompany(Company \$company, EntityManagerInterface \$entityManager) & Удаляет компанию из базы данных. Возвращает HTTP-ответ с кодом 200 при успехе или 403 при отсутствии прав. \\ \hline
-	userCompanies(CompanyRepository \$companyRepository) & Возвращает список компаний, связанных с авторизованным пользователем, в формате JSON с кодом 200. \\ \hline
-\end{xltabular}
 
 \subsubsection{Спецификация класса VacancyResponseApiController}
-VacancyResponseApiController (компонент управления откликами на вакансии через API)
 
-Описание: Управляет операциями, связанными с откликами на вакансии, включая создание нового отклика и получение списка откликов, связанных с авторизованным пользователем. Реализует REST API и взаимодействует с сущностью VacancyResponse.
+VacancyResponseApiController (компонент управления откликами на вакансии через API).
+
+Описание: управляет операциями, связанными с откликами на вакансии, включая создание нового отклика и получение списка откликов, связанных с авторизованным пользователем. Реализует REST API и взаимодействует с сущностью VacancyResponse.
 
 Валидация данных:
 \begin{itemize}
@@ -603,347 +357,6 @@ VacancyResponseApiController (компонент управления откли
 	userResume(VacancyResponse Repository \$vacancyResponseRepository) & Возвращает список откликов, связанных с авторизованным пользователем, в формате JSON с кодом 200. \\ \hline
 \end{xltabular}
 
-\subsubsection{Спецификация класса CityApiController}
-CityApiController (компонент управления городами через API)
-
-Описание: Управляет операциями получения информации о городах через REST API. Обеспечивает получение списка всех городов или данных об одном городе по его идентификатору. Взаимодействует с сущностью City.
-
-Валидация данных:
-\begin{itemize}
-	\item отсутствует валидация входных данных, так как методы обрабатывают GET-запросы с параметрами, передаваемыми в URL;
-	\item предполагается, что идентификатор города, переданный в URL, существует в базе данных.
-\end{itemize}
-
-
-Безопасность:
-\begin{itemize}
-	\item использует FOSRestBundle для обработки REST-запросов и формирования стандартизированных JSON-ответов;
-	\item не реализует дополнительной аутентификации или авторизации, доступ к методам предполагается открытым.
-\end{itemize}
-
-
-Основные методы:
-\begin{itemize}
-	\item getCityList(CityRepository \$cityRepository): возвращает список всех городов;
-	\item getSingleCity(City \$city, CityRepository \$cityRepository): возвращает данные об одном городе по его идентификатору.
-\end{itemize}
-
-Зависимости:
-\begin{itemize}
-	\item взаимодействует с сущностью City и репозиторием CityRepository;
-	\item использует FOSRestBundle для обработки REST-запросов и формирования JSON-ответов.
-\end{itemize}
-
-В таблице \ref{CityPar:table} представлены данные класса CityApiController.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Поля класса класса CityApiController \label{CityPar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{CityPar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	City & Сущность, представляющая город. \\ \hline
-	CityRepository & Репозиторий для работы с сущностью City. \\ \hline
-\end{xltabular}
-
-В таблице \ref{CityPM:table} представлены методы класса CityApiController.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Методы класса CityApiController \label{CityPM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{CityPM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	getCityList(CityRepository \$cityRepository) & Возвращает список всех городов в формате JSON с кодом 200. \\ \hline
-	getSingleCity(City \$city, CityRepository \$cityRepository) & Возвращает данные об одном городе по его идентификатору в формате JSON с кодом 200. \\ \hline
-\end{xltabular}
-
-\subsubsection{Спецификация класса DoctrineFiltersEnabledSubscriber}
-DoctrineFiltersEnabledSubscriber (сервис для управления фильтрами Doctrine)
-
-Описание: Отвечает за динамическое включение фильтров Doctrine для ограничения данных, возвращаемых из базы данных, на основе маршрутов и консольных команд. Реализует интерфейс EventSubscriberInterface для обработки событий HTTP-запросов. Инкапсулирует логику управления фильтрами, связанными с активностью и модерацией сущностей.
-
-Валидация данных:
-\begin{itemize}
-	\item отсутствует валидация входных данных, так как методы обрабатывают параметры маршрутов и URI;
-	\item проверяет наличие маршрутов в белом списке и присутствие префикса /admin в URI.
-\end{itemize}
-
-Связи:
-\begin{itemize}
-	\item взаимодействует с EntityManagerInterface для управления фильтрами Doctrine.
-\end{itemize}
-
-Безопасность:
-\begin{itemize}
-	\item применяет фильтры only\_enabled\_from\_front\_doctrine\_filter и only\_moderated\_from\_front\_doctrine\_filter для ограничения доступа к данным на уровне базы данных;
-	\item исключает применение фильтров для маршрутов, указанных в белых списках, и запросов с префиксом /admin.
-\end{itemize}
-
-Основные методы:
-\begin{itemize}
-	\item getSubscribedEvents(): возвращает массив подписанных событий (KernelEvents::REQUEST и ConsoleEvents::COMMAND);
-	\item onKernelRequest(RequestEvent \$event): обрабатывает HTTP-запросы, вызывая методы проверки и включения фильтров;
-	\item onConsoleCommand(ConsoleCommandEvent \$event): активирует фильтры для определенной консольной команды (app:search-import);
-	\item checkAndEnabledFilterIsEnabled(string \$uri, ?string \$routeNamed): проверяет условия и включает фильтр is\_enabled;
-	\item checkAndEnabledFilterIsModerated(string \$uri, ?string \$routeNamed): проверяет условия и включает фильтр is\_moderated;
-	\item setEnabledFilterIsEnabled(): активирует фильтр only\_enabled\_from\_front\_doctrine\_filter с параметром is\_enabled;
-	\item setEnabledFilterIsModerated(): активирует фильтр only\_moderated\_from\_front\_doctrine\_filter с параметром is\_moderated.
-\end{itemize}
-
-Зависимости:
-\begin{itemize}
-	\item использует EntityManagerInterface для работы с фильтрами Doctrine;
-	\item зависит от Symfony/Component/HttpKernel/Event/RequestEvent и Symfony/Component/Console/Event/ConsoleCommandEvent для обработки событий;
-	\item взаимодействует с FOSRestBundle для обработки REST-запросов в контексте маршрутов.
-\end{itemize}
-
-В таблице \ref{DoctrineFiltersPar:table} представлены данные класса DoctrineFiltersEnabledSubscriber.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Поля класса класса DoctrineFiltersEnabledSubscriber \label{DoctrineFiltersPar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{DoctrineFiltersPar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	EntityManagerInterface & Интерфейс для управления фильтрами Doctrine. \\ \hline
-	RequestEvent & Событие HTTP-запроса для обработки маршрутов и URI. \\ \hline
-	ConsoleCommandEvent & Событие консольной команды для обработки команды app:search-import. \\ \hline
-\end{xltabular}
-
-В таблице \ref{DoctrineFiltersPM:table} представлены методы класса DoctrineFiltersEnabledSubscriber.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Методы класса DoctrineFiltersEnabledSubscriber \label{DoctrineFiltersPM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{DoctrineFiltersPM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	getSubscribedEvents() & Возвращает массив подписанных событий для обработки HTTP-запросов и консольных команд. \\ \hline
-	onKernelRequest(RequestEvent \$event) & Обрабатывает HTTP-запросы, вызывая методы проверки и включения фильтров. \\ \hline
-	onConsoleCommand(Console
-	CommandEvent \$event) & Активирует фильтры для консольной команды app:search-import. \\ \hline
-	checkAndEnabledFilterIsEnabled( string \$uri, ?string \$routeNamed) & Проверяет условия и включает фильтр is\_enabled для ограничения данных. \\ \hline
-	checkAndEnabledFilterIsModerated( string \$uri, ?string \$routeNamed) & Проверяет условия и включает фильтр is\_moderated для ограничения данных. \\ \hline
-	setEnabledFilterIsEnabled() & Активирует фильтр only\_enabled\_from\_front\_doctrine \_filter с параметром is\_enabled. \\ \hline
-	setEnabledFilterIsModerated() & Активирует фильтр only\_moderated\_from\_front\_doctrine \_filter с параметром is\_moderated. \\ \hline
-\end{xltabular}
-
-\subsubsection{Спецификация класса FilterService}
-FilterService (сервис для управления фильтрацией данных)
-
-Описание: Отвечает за обработку и применение фильтров к запросам Doctrine на основе параметров HTTP-запросов. Парсит фильтры из запросов, определяет фильтруемые поля сущностей с помощью атрибута Filterable и применяет фильтры к QueryBuilder. Инкапсулирует логику фильтрации данных для выборки сущностей из базы данных.
-
-Основные задачи:
-\begin{itemize}
-	\item парсинг параметров фильтров из HTTP-запросов;
-	\item определение фильтруемых полей сущностей через атрибут Filterable;
-	\item применение фильтров к запросам Doctrine с поддержкой различных типов фильтрации (точное совпадение, LIKE, диапазоны, даты);
-	\item обработка связанных сущностей через LEFT JOIN;
-	\item проверка валидности значений фильтров и их преобразование (например, диапазоны вида "100-500").
-\end{itemize}
-
-Основные методы:
-\begin{itemize}
-	\item parseFilters(Request \$request): парсит параметры фильтров из HTTP-запроса и возвращает их в виде массива;
-	\item applyFilters(QueryBuilder \$qb, array \$filters, string \$entityClass): применяет фильтры к QueryBuilder на основе фильтруемых полей сущности;
-	\item getFilterableFields(ReflectionClass \$reflection): возвращает массив фильтруемых полей сущности, определенных атрибутом Filterable;
-	\item applyFilter(QueryBuilder \$qb, string \$type, string \$field, mixed \$value, string \$paramName): применяет фильтр к QueryBuilder в зависимости от типа фильтра;
-	\item applyRangeFilter(QueryBuilder \$qb, string \$field, mixed \$value, string \$paramName): применяет фильтр диапазона значений;
-	\item applyDateRangeFilter(QueryBuilder \$qb, string \$field, mixed \$value, string \$paramName): применяет фильтр диапазона дат;
-	\item addJoin(QueryBuilder \$qb, string \$joinConfig): добавляет LEFT JOIN к QueryBuilder для связанных сущностей;
-	\item getFieldPath(Filterable \$filterable, string \$rootAlias): определяет путь к полю для фильтрации;
-	\item isValidFilterValue(mixed \$value): проверяет валидность значения фильтра;
-	\item parseFilterValue(mixed \$value): парсит значение фильтра, включая диапазоны.
-\end{itemize}
-
-Зависимости:
-\begin{itemize}
-	\item использует EntityManagerInterface для работы с Doctrine и QueryBuilder;
-	\item зависит от Symfony/Component/HttpFoundation/Request для получения параметров запроса;
-	\item использует ReflectionClass для анализа полей сущностей;
-	\item взаимодействует с атрибутом App/Attribute/Filterable для определения фильтруемых полей;
-	\item использует App/Enum/FilterType для определения типов фильтров.
-\end{itemize}
-
-В таблице \ref{FilterServicePar:table} представлены данные класса FilterService.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Поля класса класса FilterService \label{FilterServicePar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{FilterServicePar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	EntityManagerInterface & Интерфейс для работы с Doctrine и QueryBuilder. \\ \hline
-	Request & Объект HTTP-запроса для получения параметров фильтров. \\ \hline
-	ReflectionClass & Класс для анализа полей сущностей через рефлексию. \\ \hline
-	Filterable & Атрибут, определяющий фильтруемые поля сущности. \\ \hline
-	FilterType & Перечисление, определяющее типы фильтров. \\ \hline
-\end{xltabular}
-
-В таблице \ref{FilterServicePM:table} представлены методы класса FilterService.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Методы класса FilterService \label{FilterServicePM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{FilterServicePM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	parseFilters(Request \$request) & Парсит параметры фильтров из HTTP-запроса и возвращает их в виде массива. \\ \hline
-	applyFilters(QueryBuilder \$qb, array \$filters, string \$entityClass) & Применяет фильтры к QueryBuilder на основе фильтруемых полей сущности. \\ \hline
-	getFilterableFields(ReflectionClass \$reflection) & Возвращает массив фильтруемых полей сущности, определенных атрибутом Filterable. \\ \hline
-	applyFilter(QueryBuilder \$qb, string \$type, string \$field, mixed \$value, string \$paramName) & Применяет фильтр к QueryBuilder в зависимости от типа фильтра. \\ \hline
-	applyRangeFilter(QueryBuilder \$qb, string \$field, mixed \$value, string \$paramName) & Применяет фильтр диапазона значений. \\ \hline
-	applyDateRangeFilter(QueryBuilder \$qb, string \$field, mixed \$value, string \$paramName) & Применяет фильтр диапазона дат. \\ \hline
-	addJoin(QueryBuilder \$qb, string \$joinConfig) & Добавляет LEFT JOIN к QueryBuilder для связанных сущностей. \\ \hline
-	getFieldPath(Filterable \$filterable, string \$rootAlias) & Определяет путь к полю для фильтрации. \\ \hline
-	isValidFilterValue(mixed \$value) & Проверяет валидность значения фильтра. \\ \hline
-	parseFilterValue(mixed \$value) & Парсит значение фильтра, включая диапазоны. \\ \hline
-\end{xltabular}
-
-\subsubsection{Спецификация класса StringHelperService}
-StringHelperService (Сервис для обработки строк)
-
-Описание: Отвечает за обработку и преобразование строк, включая генерацию случайных строк, создание слаг-идентификаторов, транслитерацию русского текста в английский, извлечение аргументов из шаблонов строк и преобразование регистра. Инкапсулирует вспомогательные функции для работы со строками в приложении.
-
-Основные задачи:
-\begin{itemize}
-	\item генерация случайных строк заданной длины;
-	\item создание уникальных слаг-идентификаторов для сущностей;
-	\item транслитерация русских символов в латинские для создания читаемых URL;
-	\item извлечение аргументов из шаблонов строк формата \%argument\$s;
-	\item преобразование первой буквы строки в верхний регистр с учетом многобайтных кодировок.
-\end{itemize}
-
-Основные методы:
-\begin{itemize}
-	\item getRandomStr(int \$length): генерирует случайную строку заданной длины из набора символов;
-	\item generateSlugForEntity(string \$string, bool \$unique = true): создает слаг из строки с возможным добавлением уникального суффикса;
-	\item translitRuToEn(string \$text): транслитерирует русский текст в английский, заменяя специальные символы на дефисы;
-	\item getStringArguments(\$format): извлекает аргументы из шаблона строки формата \%argument\$s;
-	\item my\_mb\_ucfirst(string \$string): преобразует первую букву строки в верхний регистр с учетом многобайтных кодировок.
-\end{itemize}
-
-Зависимости:
-\begin{itemize}
-	\item использует встроенные PHP-функции для работы со строками (mb\_strtolower, mb\_ereg\_replace, strtr);
-	\item зависит от Exception для обработки ошибок при генерации случайных строк;
-	\item не имеет прямых зависимостей от внешних библиотек или фреймворков.
-\end{itemize}
-
-В таблице \ref{StringHelperServicePar:table} представлены данные класса StringHelperService.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Поля класса класса StringHelperService \label{StringHelperServicePar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{StringHelperServicePar:table}} \\
-	\hline 
-	\centrow Поле & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	KEYSPACE & Строка, содержащая набор символов для генерации случайных строк. \\ \hline
-\end{xltabular}
-
-В таблице \ref{StringHelperServicePM:table} представлены методы класса StringHelperService.
-
-\begin{xltabular}{\textwidth}{|X|X|}
-	\caption{Методы класса StringHelperService \label{StringHelperServicePM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание \\
-	\hline 
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{StringHelperServicePM:table}} \\
-	\hline 
-	\centrow Метод & 
-	\centrow Описание  \\
-	\hline 
-	\endhead
-	
-	getRandomStr(int \$length) & Генерирует случайную строку заданной длины из набора символов. \\ \hline
-	generateSlugForEntity(string \$string, bool \$unique = true) & Создает слаг из строки с возможным добавлением уникального суффикса. \\ \hline
-	translitRuToEn(string \$text) & Транслитерирует русский текст в английский, заменяя специальные символы на дефисы. \\ \hline
-	getStringArguments(\$format) & Извлекает аргументы из шаблона строки формата \%argument\$s. \\ \hline
-	my\_mb\_ucfirst(string \$string) & Преобразует первую букву строки в верхний регистр с учетом многобайтных кодировок. \\ \hline
-\end{xltabular}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 \subsection{Тестирование программной системы}
@@ -957,7 +370,7 @@ StringHelperService (Сервис для обработки строк)
 тод системы функционируют корректно при различных сценариях использо-
 вания.
 
-Описание процесса модульного тестирования:
+Описание процесса модульного тестирования.
 
 Модульное тестирование фокусируется на проверке правильности ра-
 боты небольших единиц программы — классов и методов, что помогает
@@ -969,14 +382,23 @@ StringHelperService (Сервис для обработки строк)
 
 Основные цели модульного тестирования:
 \begin{enumerate}
-	\item Изоляция: Каждый тест проверяет работу одного класса или метода,
+	\item Изоляция. 
+	
+	Каждый тест проверяет работу одного класса или метода,
 	что позволяет точно определить место возникновения ошибки.
-	\item Автоматизация: Модульные тесты выполняются автоматически с
+	
+	\item Автоматизация. 
+	
+	Модульные тесты выполняются автоматически с
 	использованием таких инструментов, как PHPUnit (для PHP), что ускоряет
 	процесс разработки и исправления ошибок.
-	\item Покрытие: Тесты охватывают все ключевые методы системы, вклю-
+	
+	\item Покрытие. 
+	
+	Тесты охватывают все ключевые методы системы, вклю-
 	чая проверку обработки граничных случаев (например, пустые или некор-
 	ректные входные данные).
+	
 \end{enumerate}
 
 
@@ -1068,35 +490,6 @@ StringHelperService (Сервис для обработки строк)
 \end{xltabular}
 
 
-\subsubsection{Тестовые наборы для класса CompanyApiController} 
-В таблице \ref{tab:newCompany} представлены тестовые наборы для функции newCompany класса CompanyApiController.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Тестовые наборы для функции newCompany \label{tab:newCompany}} \\
-	\hline
-	\centrow Описание теста &
-	\centrow Входные данные &
-	\centrow Эталонные выходные данные \\
-	\hline
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{tab:newCompany}} \\
-	\hline
-	\centrow Описание теста &
-	\centrow Входные данные &
-	\centrow Эталонные выходные данные \\
-	\hline
-	\endhead
-	
-	Создание новой компании с валидными данными, авторизацией и ролью ROLE\_EMPLOYER. & POST запрос на /api/company/new с JSON: \{ \enquote{name}: \enquote{Test Company}, \enquote{address}: \enquote{123 Test St}, \enquote{description}: \enquote{Test description} \}. Заголовок Authorization с Bearer токеном пользователя с ролью ROLE\_EMPLOYER. & HTTP код 201, JSON объект созданной компании с полями: id, name, address, description, isConfirmed=false, user. Данные сохранены в БД. \\ \hline
-	
-	Создание компании с невалидными данными (пустое обязательное поле). & POST запрос на /api/company/new с JSON: \{ \enquote{name}: \enquote{}, \enquote{address}: \enquote{123 Test St}, \enquote{description}: \enquote{Test description} \}. Заголовок Authorization с Bearer токеном пользователя с ролью ROLE\_EMPLOYER. & HTTP код 400, JSON с сообщением об ошибке валидации \enquote{Validation Failed: Name cannot be empty}. \\ \hline
-	
-	Попытка создания компании без роли ROLE\_EMPLOYER. & POST запрос на /api/company/new с валидными данными: \{ \enquote{name}: \enquote{Test Company}, \enquote{address}: \enquote{123 Test St}, \enquote{description}: \enquote{Test description} \}. Заголовок Authorization с Bearer токеном пользователя без роли ROLE\_EMPLOYER. & HTTP код 403, JSON с сообщением об ошибке \enquote{Access denied}. \\ \hline
-	
-	Попытка создания компании без авторизации. & POST запрос на /api/company/new с валидными данными: \{ \enquote{name}: \enquote{Test Company}, \enquote{address}: \enquote{123 Test St}, \enquote{description}: \enquote{Test description} \} без заголовка Authorization. & HTTP код 401, JSON с сообщением об ошибке \enquote{Unauthorized}. \\ \hline
-\end{xltabular}
-
 \subsubsection{Тестовые наборы для класса VacancyResponseApiController}
 
 В таблице \ref{tab:newVacancyResponse} представлены тестовые наборы для функции newVacancyResponse класса VacancyResponseApiController.
@@ -1125,60 +518,6 @@ StringHelperService (Сервис для обработки строк)
 	Попытка создания отклика без авторизации. & POST запрос на /api/vacancy\_response/ new с валидными данными: \{ \enquote{vacancyId}: 1, \enquote{resumeId}: 1, \enquote{coverLetter}: \enquote{Test cover letter} \} без заголовка Authorization. & HTTP код 401, JSON с сообщением об ошибке \enquote{Unauthorized}. \\ \hline
 \end{xltabular}
 
-\subsubsection{Тестовые наборы для класса FilterService}
-
-В таблице \ref{tab:parseFilters} представлены тестовые наборы для функции parseFilters класса FilterService.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Тестовые наборы для функции parseFilters \label{tab:parseFilters}} \\
-	\hline
-	\centrow Описание теста &
-	\centrow Входные данные &
-	\centrow Эталонные выходные данные \\
-	\hline
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{tab:parseFilters}} \\
-	\hline
-	\centrow Описание теста &
-	\centrow Входные данные &
-	\centrow Эталонные выходные данные \\
-	\hline
-	\endhead
-	
-	Парсинг валидных фильтров с различными типами значений. & GET запрос с параметрами: ?name=Test \&skills=php,javascript \&salary=100-500 \&active=true. & Массив: \{ \enquote{name}: \enquote{Test}, \enquote{skills}: [\enquote{php}, \enquote{javascript}], \enquote{salary}: \{ \enquote{from}: 100, \enquote{to}: 500 \}, \enquote{active}: \enquote{true} \}. \\ \hline
-	
-	Парсинг запроса с невалидными значениями (пустые и null). & GET запрос с параметрами: ?name=\&skills=\&active=null. & Пустой массив: \{ \}. \\ \hline
-	
-	Парсинг запроса с некорректным форматом диапазона. & GET запрос с параметрами: ?salary=100-abc. & Массив: \{ \enquote{salary}: \enquote{100-abc} \}, так как строка не соответствует формату диапазона и возвращается без изменений. \\ \hline
-\end{xltabular}
-
-В таблице \ref{tab:applyFilters} представлены тестовые наборы для функции applyFilters класса FilterService.
-
-\begin{xltabular}{\textwidth}{|X|X|X|}
-	\caption{Тестовые наборы для функции applyFilters \label{tab:applyFilters}} \\
-	\hline
-	\centrow Описание теста &
-	\centrow Входные данные &
-	\centrow Эталонные выходные данные \\
-	\hline
-	\endfirsthead
-	
-	\caption*{Продолжение таблицы \ref{tab:applyFilters}} \\
-	\hline
-	\centrow Описание теста &
-	\centrow Входные данные &
-	\centrow Эталонные выходные данные \\
-	\hline
-	\endhead
-	
-	Применение валидных фильтров с различными типами. & QueryBuilder для сущности App/Entity/Vacancy, массив фильтров: \{ \enquote{name}: \enquote{Developer}, \enquote{salary}: \{ \enquote{from}: 1000, \enquote{to}: 5000 \}, \enquote{skills}: [\enquote{php}, \enquote{javascript}] \}. Поля name (тип LIKE), salary (тип RANGE), skills (тип IN) помечены как Filterable. & QueryBuilder с добавленными условиями: a.name LIKE :param\_0 с параметром \%Developer\%, a.salary >= :param\_1\_from с параметром 1000, a.salary <= :param\_1\_to с параметром 5000, a.skills IN (:param\_2) с параметром [\enquote{php}, \enquote{javascript}]. \\ \hline
-	
-	Применение фильтра с несуществующим полем. & QueryBuilder для сущности App/Entity/Vacancy, массив фильтров: \{ \enquote{invalidField}: \enquote{Test} \}. Поле invalidField не помечено как Filterable. & QueryBuilder без изменений, так как несуществующее поле игнорируется. \\ \hline
-	
-	Применение фильтра с некорректным типом. & QueryBuilder для сущности App/Entity/Vacancy, массив фильтров: \{ \enquote{name}: \enquote{Test} \}. Поле name помечено как Filterable с неизвестным типом INVALID\_TYPE. & Выбрасывается исключение InvalidArgumentException с сообщением \enquote{Unknown filter type: INVALID\_TYPE}. \\ \hline
-\end{xltabular}
-
 \subsection{Системное тестирование платформы}
 
 Целью данного тестирования является проверка функциональности, надежности и производительности веб-платформы для поиска работы.
@@ -1193,24 +532,24 @@ StringHelperService (Сервис для обработки строк)
 
 На рисунке \ref{landing:image} представлена главная страница сайта.
 \begin{figure}[H] 
-\center{\includegraphics[width=1\linewidth]{landing}}
+\center{\includegraphics[width=0.7\linewidth]{landing}}
 \caption{Главная страница}
 \label{landing:image}
 \end{figure}
 
 \textbf{2) Авторизация пользователя}
 
-Описание: Пользователь должен иметь возможность войти в систему с
+Описание: пользователь должен иметь возможность войти в систему с
 использованием корректных учетных данных.
 
-Ожидаемый результат: При вводе верного имени пользователя и пароля
+Ожидаемый результат: при вводе верного имени пользователя и пароля
 осуществляется успешный вход, открывается главная рабочая область. При
 вводе некорректных данных система отображает сообщение об ошибке.
 
 На рисунке \ref{auth:image} представлена страница авторизации.
 
 \begin{figure}[H]
-\center{\includegraphics[width=1\linewidth]{auth}}
+\center{\includegraphics[width=0.6\linewidth]{auth}}
 \caption{Страница авторизации}
 \label{auth:image}
 \end{figure}
@@ -1225,7 +564,7 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{profile:image} представлена страница \enquote{Профиль}.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{profile}}
+	\center{\includegraphics[width=0.6\linewidth]{profile}}
 	\caption{страница \enquote{Профиль} }
 	\label{profile:image}
 \end{figure}
@@ -1239,8 +578,8 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{vacancy:image} представлена страница \enquote{Создание вакансии}.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{vacancy}}
-	\center{\includegraphics[width=1\linewidth]{vacancy2}}
+	\center{\includegraphics[width=0.6\linewidth]{vacancy}}
+	\center{\includegraphics[width=0.6\linewidth]{vacancy2}}
 	\caption{страница \enquote{Создание вакансии} }
 	\label{vacancy:image}
 \end{figure}
@@ -1254,7 +593,7 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{vacpers:image} представлена страница \enquote{Мои вакансии}.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{vacpers}}
+	\center{\includegraphics[width=0.7\linewidth]{vacpers}}
 	\caption{ Cтраница \enquote{Мои вакансии}}
 	\label{vacpers:image}
 \end{figure}
@@ -1267,7 +606,7 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{vacview:image} представлена страница просмотра вакансии.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{vacview}}
+	\center{\includegraphics[width=0.6\linewidth]{vacview}}
 	\caption{ Cтраница просмотра вакансии}
 	\label{vacview:image}
 \end{figure}
@@ -1282,7 +621,7 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{vacvedit:image} представлена страница редактирования вакансии.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{vacedit}}
+	\center{\includegraphics[width=0.6\linewidth]{vacedit}}
 	\caption{ Cтраница редактирования вакансии}
 	\label{vacvedit:image}
 \end{figure}
@@ -1304,7 +643,7 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{vacdelres:image} представлен результат удаления вакансии.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{vacdelres}}
+	\center{\includegraphics[width=0.6\linewidth]{vacdelres}}
 	\caption{ Результат удаления вакансии}
 	\label{vacdelres:image}
 \end{figure}
@@ -1347,7 +686,7 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{compedit:image} представлена страница редактирования компании.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{compedit}}
+	\center{\includegraphics[width=0.6\linewidth]{compedit}}
 	\caption{Страница редактирования компании}
 	\label{compedit:image}
 \end{figure}
@@ -1370,7 +709,7 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{compdelres:image} представлен результат удаления компании.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{compdelres}}
+	\center{\includegraphics[width=0.6\linewidth]{compdelres}}
 	\caption{ Результат удаления компании}
 	\label{compdelres:image}
 \end{figure}
@@ -1407,7 +746,7 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{filtersres:image} представлен результат фильтрации.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{filtersres}}
+	\center{\includegraphics[width=0.6\linewidth]{filtersres}}
 	\caption{ Результат фильтрации}
 	\label{filtersres:image}
 \end{figure}
@@ -1437,7 +776,7 @@ StringHelperService (Сервис для обработки строк)
 На рисунке \ref{resumepers:image} представлена страница \enquote{Мои резюме}.
 
 \begin{figure}[H]
-	\center{\includegraphics[width=1\linewidth]{resumepers}}
+	\center{\includegraphics[width=0.6\linewidth]{resumepers}}
 	\caption{ Cтраница \enquote{Мои резюме}}
 	\label{resumepers:image}
 \end{figure}
